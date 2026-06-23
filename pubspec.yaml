@@ -1,0 +1,52 @@
+name: smart_lathe_frontend
+description: Smart Lathe Monitoring Frontend
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+
+dependencies:
+
+
+  flutter:
+    sdk: flutter
+  firebase_core: ^3.13.0
+  google_sign_in: ^6.3.0
+  
+  cupertino_icons: ^1.0.8
+
+  provider: ^6.1.5
+
+  dio: ^5.9.2
+
+  google_fonts: ^6.3.3
+  flutter_svg: ^2.3.0
+
+  syncfusion_flutter_gauges: ^28.2.12
+
+  fl_chart: ^0.68.0
+
+  shared_preferences: ^2.5.5
+
+  intl: ^0.20.2
+
+  path_provider: ^2.1.2
+
+  open_file: ^3.5.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+
