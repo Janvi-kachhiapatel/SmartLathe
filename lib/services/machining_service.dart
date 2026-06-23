@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 // // import 'dart:math';
 
 // // import '../data/cutting_speed_table.dart';
@@ -316,6 +319,7 @@ class MachiningService {
       safe: safe,
     );
   }
+<<<<<<< HEAD
 =======
 import 'dart:math';
 
@@ -381,4 +385,6 @@ class MachiningService {
   }
 
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 }

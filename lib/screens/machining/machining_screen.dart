@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../../services/machining_service.dart';
 import '../../models/machining_model.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 //import '../../widgets/machining/comparison_card.dart';
 import '../../services/api_service.dart';
 import 'dart:async';
@@ -10,6 +13,7 @@ import '../../widgets/machining/kpi_card.dart';
 import '../../widgets/machining/recommended_parameters_card.dart';
 import '../../widgets/machining/live_machine_card.dart';
 import '../../services/ai_recommendation_service.dart';
+<<<<<<< HEAD
 =======
 import '../../widgets/machining/comparison_card.dart';
 import '../../services/api_service.dart';
@@ -17,6 +21,8 @@ import 'dart:async';
 import '../../services/comparison_service.dart';
 import '../../widgets/machining/kpi_card.dart';
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
 class MachiningScreen extends StatefulWidget {
   const MachiningScreen({super.key});
@@ -79,6 +85,9 @@ void dispose() {
 
       appBar: AppBar(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   elevation: 0,
   centerTitle: true,
   title: const Text(
@@ -89,10 +98,13 @@ void dispose() {
     ),
   ),
 ),
+<<<<<<< HEAD
 =======
         title: const Text("Machining Assistant"),
       ),
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
       body: SingleChildScrollView(
 
@@ -146,6 +158,7 @@ void dispose() {
                             child: Text("Carbide")),
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         // DropdownMenuItem(
                         //     value: "Ceramic",
                         //     child: Text("Ceramic")),
@@ -154,6 +167,11 @@ void dispose() {
                             value: "Ceramic",
                             child: Text("Ceramic")),
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+                        // DropdownMenuItem(
+                        //     value: "Ceramic",
+                        //     child: Text("Ceramic")),
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
                       ],
 
@@ -166,6 +184,9 @@ void dispose() {
                     ),
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
                     //const SizedBox(height: 20),
 
 // Card(
@@ -211,6 +232,7 @@ void dispose() {
         // ),
 
       
+<<<<<<< HEAD
 =======
                     const SizedBox(height: 20),
 
@@ -261,6 +283,8 @@ Card(
   ),
 ),
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
                     const SizedBox(height: 18),
 
@@ -271,9 +295,13 @@ Card(
                         border: OutlineInputBorder(),
                       ),
 <<<<<<< HEAD
+<<<<<<< HEAD
                       
 =======
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+                      
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
                       value: material,
 
@@ -281,6 +309,9 @@ Card(
 
                         DropdownMenuItem(
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
     value: "Gray Cast Iron",
     child: Text("Gray Cast Iron"),
 ),
@@ -299,6 +330,7 @@ DropdownMenuItem(
     value: "Aluminium Alloy",
     child: Text("Aluminium Alloy"),
 ),
+<<<<<<< HEAD
 =======
                             value: "Mild Steel",
                             child: Text("Mild Steel")),
@@ -319,6 +351,8 @@ DropdownMenuItem(
                             value: "SS304",
                             child: Text("SS304")),
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
                       ],
 
@@ -369,6 +403,9 @@ DropdownMenuItem(
 
                     ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 //const SizedBox(height: 20),
 
 // const Text(
@@ -397,6 +434,7 @@ DropdownMenuItem(
 //   color: Colors.green,
 
 // ),
+<<<<<<< HEAD
 =======
 const SizedBox(height: 20),
 
@@ -427,6 +465,8 @@ ComparisonCard(
 
 ),
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
                     const SizedBox(height: 18),
 
                     TextField(
@@ -468,6 +508,9 @@ ComparisonCard(
 
                     const SizedBox(height: 25),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 SizedBox(
   width: double.infinity,
   height: 58,
@@ -535,6 +578,7 @@ setState(() {});
                       ),
 
                     ),
+<<<<<<< HEAD
 =======
 
                     SizedBox(
@@ -578,6 +622,8 @@ setState(() {});
 
                     )
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
                   ],
 
@@ -603,6 +649,9 @@ setState(() {});
                   children:  [
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
                     if (result != null)
   RecommendedParametersCard(
     result: result!,
@@ -784,6 +833,7 @@ LiveMachineCard(
         ),
       ),
     );
+<<<<<<< HEAD
 =======
                     Text(
                       "Recommended Parameters",
@@ -838,5 +888,7 @@ Text(
     );
 
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   }
 }

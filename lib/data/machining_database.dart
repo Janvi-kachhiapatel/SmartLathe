@@ -3,6 +3,9 @@ class MachiningDatabase {
   static const Map<String, Map<String, dynamic>> cuttingData = {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
     "Mild Steel": {
 
   "HSS": {
@@ -50,6 +53,7 @@ class MachiningDatabase {
   }
 
 
+<<<<<<< HEAD
 =======
     "Mild Steel":{
 
@@ -65,6 +69,8 @@ class MachiningDatabase {
         "doc":3.0,
       }
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
     },
 

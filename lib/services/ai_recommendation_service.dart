@@ -1,5 +1,8 @@
 class AIRecommendationService {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   static List<String> generate({
     required double recommendedRPM,
     required double actualRPM,
@@ -48,6 +51,7 @@ class AIRecommendationService {
 
     return tips;
   }
+<<<<<<< HEAD
 =======
 
 static List<String> generate({
@@ -104,4 +108,6 @@ return tips;
 }
 
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 }

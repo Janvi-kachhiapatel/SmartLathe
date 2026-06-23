@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../services/api_service.dart';
@@ -223,6 +226,7 @@ class _AlarmsScreenState extends State<AlarmsScreen> {
             ),
 
           ],
+<<<<<<< HEAD
 =======
 import 'package:flutter/material.dart';
 
@@ -247,6 +251,8 @@ class AlarmsScreen extends StatelessWidget {
 
           style: TextStyle(fontSize: 20),
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
         ),
 

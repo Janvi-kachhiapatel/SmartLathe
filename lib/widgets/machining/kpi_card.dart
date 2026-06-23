@@ -2,16 +2,22 @@ import 'package:flutter/material.dart';
 
 class KpiCard extends StatelessWidget {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   final IconData icon;
   final String title;
   final String value;
   final String unit;
+<<<<<<< HEAD
 =======
 
   final IconData icon;
   final String title;
   final String value;
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   final Color color;
 
   const KpiCard({
@@ -20,15 +26,22 @@ class KpiCard extends StatelessWidget {
     required this.title,
     required this.value,
 <<<<<<< HEAD
+<<<<<<< HEAD
     required this.unit,
 =======
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+    required this.unit,
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
     required this.color,
   });
 
   @override
   Widget build(BuildContext context) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
     return Container(
       height: 145,
       padding: const EdgeInsets.symmetric(
@@ -80,6 +93,7 @@ class KpiCard extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 =======
 
     return Container(
@@ -146,4 +160,6 @@ class KpiCard extends StatelessWidget {
   }
 
 >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+=======
+>>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 }
