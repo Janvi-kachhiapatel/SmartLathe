@@ -153,19 +153,18 @@ class _EnergyScreenState extends State<EnergyScreen> {
           children: [
 
             energyCard(
-  "Voltage",
+  "Avg Voltage (LN)",
   "${data["energy"]?["data"]?["avg_voltage_LN"] ?? 0} V",
   Colors.blue,
   Icons.bolt,
 ),
 
 energyCard(
-  "Current",
+  "Avg Current",
   "${data["energy"]?["data"]?["avg_current"] ?? 0} A",
   Colors.green,
   Icons.electric_meter,
 ),
-
 energyCard(
   "Power",
   "${data["energy"]?["data"]?["total_kW"] ?? 0} kW",
@@ -181,7 +180,7 @@ energyCard(
 ),
 
 energyCard(
-  "Energy",
+  "Net Energy",
   "${data["energy"]?["data"]?["total_net_kwh"] ?? 0} kWh",
   Colors.teal,
   Icons.battery_charging_full,

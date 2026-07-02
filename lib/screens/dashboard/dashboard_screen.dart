@@ -22,6 +22,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
 bool backendConnected = false;
 
+DateTime? lastMachineOnTime;
+bool previousMachineStatusOn = false;
+
 DateTime? lastUpdate;
   Map<String, dynamic> droData = {};
 
@@ -76,11 +79,25 @@ Future<void> loadData() async {
     print("LOAD DATA STARTED");
 
    final result = await ApiService.getData();
-    print("FULL DATA = $result");
-    print("DRO RESULT:");
-   
-    print("RESULT RECEIVED:");
-    print(result);
+
+// 👇 ADD THIS BLOCK RIGHT HERE
+final machineStatus =
+    (result["machine"]?["status"] ?? "OFF").toString();
+
+final isMachineOn = machineStatus.toUpperCase() == "ON";
+
+// detect OFF → ON transition
+if (isMachineOn && !previousMachineStatusOn) {
+  lastMachineOnTime = DateTime.now();
+}
+
+previousMachineStatusOn = isMachineOn;
+// 👆 END OF NEW BLOCK
+
+print("FULL DATA = $result");
+print("DRO RESULT:");
+print("RESULT RECEIVED:");
+print(result);
 
    if (!mounted) return;
 
@@ -287,39 +304,115 @@ IconButton(
   ],
 ),
 
-if (lastUpdate != null)
+// Column(
+//   crossAxisAlignment: CrossAxisAlignment.start,
+//   children: [
+//     if (lastMachineOnTime != null)
+//       Text(
+//         "Last Machine ON : "
+//         "${lastMachineOnTime!.hour.toString().padLeft(2, '0')}:"
+//         "${lastMachineOnTime!.minute.toString().padLeft(2, '0')}:"
+//         "${lastMachineOnTime!.second.toString().padLeft(2, '0')}",
+//         style: const TextStyle(
+//           color: Colors.grey,
+//           fontSize: 12,
+//         ),
+//       ),
 
-Padding(
+//     const SizedBox(height: 4),
 
-  padding: const EdgeInsets.only(top: 6),
+//     if (lastUpdate != null)
+//       Text(
+//         "Last API Update : "
+//         "${lastUpdate!.hour.toString().padLeft(2, '0')}:"
+//         "${lastUpdate!.minute.toString().padLeft(2, '0')}:"
+//         "${lastUpdate!.second.toString().padLeft(2, '0')}",
+//         style: const TextStyle(
+//           color: Colors.grey,
+//           fontSize: 12,
+//         ),
+//       ),
+//   ],
+// ),
+        
 
-  child: Align(
+// Padding(
 
-    alignment: Alignment.centerLeft,
+//   padding: const EdgeInsets.only(top: 6),
 
-    child: Text(
+//   child: Align(
 
-      "Last Updated : "
+//     alignment: Alignment.centerLeft,
 
-      "${lastUpdate!.hour.toString().padLeft(2,'0')}:"
+//     child: Text(
+//       "Last Machine ON : ${lastMachineOnTime!...}"
 
-      "${lastUpdate!.minute.toString().padLeft(2,'0')}:"
+//       if (lastMachineOnTime != null)
+//   Padding(
+//     padding: const EdgeInsets.only(top: 6),
+//     child: Align(
+//       alignment: Alignment.centerLeft,
+//       child: Text(
+//         "Last Machine ON : "
+//         "${lastMachineOnTime!.hour.toString().padLeft(2, '0')}:"
+//         "${lastMachineOnTime!.minute.toString().padLeft(2, '0')}:"
+//         "${lastMachineOnTime!.second.toString().padLeft(2, '0')}",
+//         style: const TextStyle(
+//           color: Colors.grey,
+//           fontSize: 12,
+//         ),
+//       ),
+//     ),
+//   ),
 
-      "${lastUpdate!.second.toString().padLeft(2,'0')}",
+      // "${lastUpdate!.hour.toString().padLeft(2,'0')}:"
 
-      style: const TextStyle(
+      // "${lastUpdate!.minute.toString().padLeft(2,'0')}:"
 
-        color: Colors.grey,
-
-        fontSize: 12,
-
+      // "${lastUpdate!.second.toString().padLeft(2,'0')}",
+Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    if (lastMachineOnTime != null)
+      Text(
+        "Last Machine ON : "
+        "${lastMachineOnTime!.hour.toString().padLeft(2, '0')}:"
+        "${lastMachineOnTime!.minute.toString().padLeft(2, '0')}:"
+        "${lastMachineOnTime!.second.toString().padLeft(2, '0')}",
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+        ),
       ),
 
-    ),
+    const SizedBox(height: 4),
 
-  ),
-
+    if (lastUpdate != null)
+      Text(
+        "Last API Update : "
+        "${lastUpdate!.hour.toString().padLeft(2, '0')}:"
+        "${lastUpdate!.minute.toString().padLeft(2, '0')}:"
+        "${lastUpdate!.second.toString().padLeft(2, '0')}",
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+        ),
+      ),
+  ],
 ),
+  //     style: const TextStyle(
+
+  //       color: Colors.grey,
+
+  //       fontSize: 12,
+
+  //     ),
+
+  //   ),
+
+  // ),
+
+//),
 
             const SizedBox(height: 14),
 

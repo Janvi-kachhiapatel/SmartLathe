@@ -1,7 +1,115 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// <<<<<<< HEAD
+// <<<<<<< HEAD
+// =======
+// >>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// // // import 'dart:math';
+
+// // // import '../data/cutting_speed_table.dart';
+// // // import '../data/feed_table.dart';
+// // // import '../models/machining_model.dart';
+
+// // // class MachiningService {
+
+// // //   static MachiningResult calculate({
+
+// // //   required String material,
+// // //   required String tool,
+// // //   required double diameter,
+// // //   required bool finishing,
+
+// // // }) {
+
+// // //   final operation =
+// // //       finishing ? "Finishing" : "Roughing";
+
+// // //   //---------------------------------------------------
+// // //   // Cutting Speed
+// // //   //---------------------------------------------------
+  
+// // //   double speed =
+// // //       CuttingSpeedTable.getCuttingSpeed(
+
+// // //     material: material,
+
+// // //     tool: tool,
+
+// // //     operation: operation,
+
+// // //   );
+
+// // //   //---------------------------------------------------
+// // //   // Feed
+// // //   //---------------------------------------------------
+
+// // //   double feed =
+// // //       FeedTable.getFeed(
+
+// // //     material: material,
+
+// // //     operation: operation,
+
+// // //   );
+
+// // //   //---------------------------------------------------
+// // //   // Depth Of Cut
+// // //   //---------------------------------------------------
+
+// // //   double doc =
+// // //       finishing ? 0.5 : 2.0;
+
+// // //   //---------------------------------------------------
+// // //   // RPM
+// // //   //---------------------------------------------------
+
+// // //   double rpm =
+// // //       (1000 * speed) /
+// // //           (pi * diameter);
+
+// // //   //---------------------------------------------------
+// // //   // Material Removal Rate
+// // //   //---------------------------------------------------
+
+// // //   double mrr =
+// // //       pi *
+// // //       diameter *
+// // //       feed *
+// // //       doc *
+// // //       rpm /
+// // //       1000;
+
+// // //   //---------------------------------------------------
+// // //   // Estimated Machining Length
+// // //   //---------------------------------------------------
+
+// // //   const double jobLength = 100;
+
+// // //   //---------------------------------------------------
+// // //   // Machining Time
+// // //   //---------------------------------------------------
+
+// // //   double machiningTime =
+// // //       jobLength /
+// // //       (feed * rpm);
+
+// // //   return MachiningResult(
+
+// // //     speed: speed,
+
+// // //     feed: feed,
+
+// // //     rpm: rpm,
+
+// // //     doc: doc,
+
+// // //     machiningTime: machiningTime,
+
+// // //     mrr: mrr,
+
+// // //   );
+
+// // // }
+
+// // // }
 // // import 'dart:math';
 
 // // import '../data/cutting_speed_table.dart';
@@ -12,108 +120,210 @@
 
 // //   static MachiningResult calculate({
 
-// //   required String material,
-// //   required String tool,
-// //   required double diameter,
-// //   required bool finishing,
+// //     required String material,
+// //     required String tool,
+// //     required double diameter,
+// //     required bool finishing,
 
-// // }) {
+// //   }) {
 
-// //   final operation =
-// //       finishing ? "Finishing" : "Roughing";
+// //     final operation =
+// //         finishing ? "Finishing" : "Roughing";
 
-// //   //---------------------------------------------------
-// //   // Cutting Speed
-// //   //---------------------------------------------------
-  
-// //   double speed =
-// //       CuttingSpeedTable.getCuttingSpeed(
+// //     double speed =
+// //         CuttingSpeedTable.getCuttingSpeed(
+// //       material: material,
+// //       tool: tool,
+// //       operation: operation,
+// //     );
 
-// //     material: material,
+// //     double feed =
+// //         FeedTable.getFeed(
+// //       material: material,
+// //       operation: operation,
+// //     );
 
-// //     tool: tool,
+// //     double doc =
+// //         finishing ? 0.5 : 2.0;
 
-// //     operation: operation,
+// //     double rpm =
+// //         (1000 * speed) / (pi * diameter);
 
-// //   );
+// //     double mrr =
+// //         pi * diameter * feed * doc * rpm / 1000;
 
-// //   //---------------------------------------------------
-// //   // Feed
-// //   //---------------------------------------------------
+// //     const double jobLength = 100;
 
-// //   double feed =
-// //       FeedTable.getFeed(
+// //     double machiningTime =
+// //         jobLength / (feed * rpm);
 
-// //     material: material,
-
-// //     operation: operation,
-
-// //   );
-
-// //   //---------------------------------------------------
-// //   // Depth Of Cut
-// //   //---------------------------------------------------
-
-// //   double doc =
-// //       finishing ? 0.5 : 2.0;
-
-// //   //---------------------------------------------------
-// //   // RPM
-// //   //---------------------------------------------------
-
-// //   double rpm =
-// //       (1000 * speed) /
-// //           (pi * diameter);
-
-// //   //---------------------------------------------------
-// //   // Material Removal Rate
-// //   //---------------------------------------------------
-
-// //   double mrr =
-// //       pi *
-// //       diameter *
-// //       feed *
-// //       doc *
-// //       rpm /
-// //       1000;
-
-// //   //---------------------------------------------------
-// //   // Estimated Machining Length
-// //   //---------------------------------------------------
-
-// //   const double jobLength = 100;
-
-// //   //---------------------------------------------------
-// //   // Machining Time
-// //   //---------------------------------------------------
-
-// //   double machiningTime =
-// //       jobLength /
-// //       (feed * rpm);
-
-// //   return MachiningResult(
-
-// //     speed: speed,
-
-// //     feed: feed,
-
-// //     rpm: rpm,
-
-// //     doc: doc,
-
-// //     machiningTime: machiningTime,
-
-// //     mrr: mrr,
-
-// //   );
-
+// //     return MachiningResult(
+// //       speed: speed,
+// //       feed: feed,
+// //       rpm: rpm,
+// //       doc: doc,
+// //       machiningTime: machiningTime,
+// //       mrr: mrr,
+// //     );
+// //   }
 // // }
 
-// // }
 // import 'dart:math';
 
-// import '../data/cutting_speed_table.dart';
-// import '../data/feed_table.dart';
+// import '../data/industrial_machining_database.dart';
+// import '../models/machining_model.dart';
+
+// class MachiningService {
+//   static MachiningResult calculate({
+//     required String material,
+//     required String tool,
+//     required double diameter,
+//     required bool finishing,
+//   }) {
+//     //------------------------------------------------------------
+//     // Select Operation
+//     //------------------------------------------------------------
+
+//     final operation = finishing ? "Finishing" : "Roughing";
+
+//     //------------------------------------------------------------
+//     // Read Database
+//     //------------------------------------------------------------
+
+//     final data = IndustrialMachiningDatabase
+//         .database[material]![tool]![operation];
+
+//     final double minSpeed =
+//         data["speedMin"].toDouble();
+
+//     final double maxSpeed =
+//         data["speedMax"].toDouble();
+
+//     final double minFeed =
+//         data["feedMin"].toDouble();
+
+//     final double maxFeed =
+//         data["feedMax"].toDouble();
+
+//     final double doc =
+//         data["doc"].toDouble();
+
+//     //------------------------------------------------------------
+//     // Average Recommended Values
+//     //------------------------------------------------------------
+
+//     final double speed =
+//         (minSpeed + maxSpeed) / 2;
+
+//     final double feed =
+//         (minFeed + maxFeed) / 2;
+
+//     //------------------------------------------------------------
+//     // RPM
+//     // Formula:
+//     // RPM=(1000×Vc)/(π×D)
+//     //------------------------------------------------------------
+
+//     final double rpm =
+//         (1000 * speed) /
+//             (pi * diameter);
+
+//     //------------------------------------------------------------
+//     // RPM Range
+//     //------------------------------------------------------------
+
+//     final double minRPM =
+//         (1000 * minSpeed) /
+//             (pi * diameter);
+
+//     final double maxRPM =
+//         (1000 * maxSpeed) /
+//             (pi * diameter);
+
+//     //------------------------------------------------------------
+//     // Assume Job Length
+//     //------------------------------------------------------------
+
+//     const double jobLength = 100.0; // mm
+
+//     //------------------------------------------------------------
+//     // Feed Speed
+//     //------------------------------------------------------------
+
+//     final double feedSpeed =
+//         feed * rpm;
+
+//     //------------------------------------------------------------
+//     // Machining Time
+//     //------------------------------------------------------------
+
+//     final double machiningTime =
+//         jobLength / feedSpeed;
+
+//     //------------------------------------------------------------
+//     // Material Removal Rate
+//     //------------------------------------------------------------
+
+//     final double mrr =
+//         speed * feed * doc;
+
+//     //------------------------------------------------------------
+//     // AI Recommendation
+//     //------------------------------------------------------------
+
+//     String recommendation =
+//         "Recommended parameters are within industrial limits.";
+
+//     bool safe = true;
+
+//     if (diameter < 10) {
+//       recommendation =
+//           "Small diameter detected. Use light feed and shallow depth of cut.";
+//     }
+
+//     if (diameter > 150) {
+//       recommendation =
+//           "Large workpiece detected. Ensure rigid clamping.";
+//     }
+
+//     if (rpm > maxRPM) {
+//       recommendation =
+//           "Calculated RPM exceeds safe limit.";
+//       safe = false;
+//     }
+
+//     if (rpm < minRPM) {
+//       recommendation =
+//           "Calculated RPM is below recommended range.";
+//       safe = false;
+//     }
+
+//     //------------------------------------------------------------
+//     // Return Result
+//     //------------------------------------------------------------
+
+//     return MachiningResult(
+//       cuttingSpeed: speed,
+//       feedRate: feed,
+//       spindleRPM: rpm,
+//       depthOfCut: doc,
+//       machiningTime: machiningTime,
+//       materialRemovalRate: mrr,
+//       minSpeed: minSpeed,
+//       maxSpeed: maxSpeed,
+//       minFeed: minFeed,
+//       maxFeed: maxFeed,
+//       minRPM: minRPM,
+//       maxRPM: maxRPM,
+//       recommendation: recommendation,
+//       safe: safe,
+//     );
+//   }
+// <<<<<<< HEAD
+// =======
+// import 'dart:math';
+
+// import '../data/machining_database.dart';
 // import '../models/machining_model.dart';
 
 // class MachiningService {
@@ -122,52 +332,62 @@
 
 //     required String material,
 //     required String tool,
+
 //     required double diameter,
+
 //     required bool finishing,
 
 //   }) {
 
-//     final operation =
-//         finishing ? "Finishing" : "Roughing";
+//     final data =
+//         MachiningDatabase
+//             .cuttingData[material]![tool]!;
 
-//     double speed =
-//         CuttingSpeedTable.getCuttingSpeed(
-//       material: material,
-//       tool: tool,
-//       operation: operation,
-//     );
+//     double speed = data["speed"];
 
-//     double feed =
-//         FeedTable.getFeed(
-//       material: material,
-//       operation: operation,
-//     );
+//     double feed = data["feed"];
 
-//     double doc =
-//         finishing ? 0.5 : 2.0;
+//     double doc = data["doc"];
 
-//     double rpm =
-//         (1000 * speed) / (pi * diameter);
+//     if(finishing){
 
-//     double mrr =
-//         pi * diameter * feed * doc * rpm / 1000;
+//       feed *=0.6;
 
-//     const double jobLength = 100;
+//       doc *=0.5;
 
-//     double machiningTime =
-//         jobLength / (feed * rpm);
+//     }
+
+//     final rpm =
+//         (1000*speed)/(pi*diameter);
+
+//     final machiningTime =
+//         diameter/feed;
+
+//     final mrr =
+//         speed*feed*doc;
 
 //     return MachiningResult(
-//       speed: speed,
-//       feed: feed,
-//       rpm: rpm,
-//       doc: doc,
-//       machiningTime: machiningTime,
-//       mrr: mrr,
-//     );
-//   }
-// }
 
+//       speed: speed,
+
+//       feed: feed,
+
+//       rpm: rpm,
+
+//       doc: doc,
+
+//       machiningTime: machiningTime,
+
+//       mrr: mrr,
+
+//     );
+
+//   }
+
+// >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+// =======
+// >>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// }
 import 'dart:math';
 
 import '../data/industrial_machining_database.dart';
@@ -180,127 +400,54 @@ class MachiningService {
     required double diameter,
     required bool finishing,
   }) {
-    //------------------------------------------------------------
-    // Select Operation
-    //------------------------------------------------------------
-
+    // Select Operation type based on finishing flag
     final operation = finishing ? "Finishing" : "Roughing";
 
-    //------------------------------------------------------------
-    // Read Database
-    //------------------------------------------------------------
+    // Read values securely from the Industrial Database Map structure
+    final data = IndustrialMachiningDatabase.database[material]![tool]![operation]!;
 
-    final data = IndustrialMachiningDatabase
-        .database[material]![tool]![operation];
+    final double minSpeed = data["speedMin"].toDouble();
+    final double maxSpeed = data["speedMax"].toDouble();
+    final double minFeed = data["feedMin"].toDouble();
+    final double maxFeed = data["feedMax"].toDouble();
+    final double doc = data["doc"].toDouble();
 
-    final double minSpeed =
-        data["speedMin"].toDouble();
+    // Average Recommended Production Values
+    final double speed = (minSpeed + maxSpeed) / 2;
+    final double feed = (minFeed + maxFeed) / 2;
 
-    final double maxSpeed =
-        data["speedMax"].toDouble();
+    // RPM calculations based on Surface Cutting Speed formula
+    final double rpm = (1000 * speed) / (pi * diameter);
+    final double minRPM = (1000 * minSpeed) / (pi * diameter);
+    final double maxRPM = (1000 * maxSpeed) / (pi * diameter);
 
-    final double minFeed =
-        data["feedMin"].toDouble();
-
-    final double maxFeed =
-        data["feedMax"].toDouble();
-
-    final double doc =
-        data["doc"].toDouble();
-
-    //------------------------------------------------------------
-    // Average Recommended Values
-    //------------------------------------------------------------
-
-    final double speed =
-        (minSpeed + maxSpeed) / 2;
-
-    final double feed =
-        (minFeed + maxFeed) / 2;
-
-    //------------------------------------------------------------
-    // RPM
-    // Formula:
-    // RPM=(1000×Vc)/(π×D)
-    //------------------------------------------------------------
-
-    final double rpm =
-        (1000 * speed) /
-            (pi * diameter);
-
-    //------------------------------------------------------------
-    // RPM Range
-    //------------------------------------------------------------
-
-    final double minRPM =
-        (1000 * minSpeed) /
-            (pi * diameter);
-
-    final double maxRPM =
-        (1000 * maxSpeed) /
-            (pi * diameter);
-
-    //------------------------------------------------------------
-    // Assume Job Length
-    //------------------------------------------------------------
-
+    // Constant evaluation configuration parameters
     const double jobLength = 100.0; // mm
+    final double feedSpeed = feed * rpm;
+    final double machiningTime = jobLength / feedSpeed;
+    final double mrr = speed * feed * doc;
 
-    //------------------------------------------------------------
-    // Feed Speed
-    //------------------------------------------------------------
-
-    final double feedSpeed =
-        feed * rpm;
-
-    //------------------------------------------------------------
-    // Machining Time
-    //------------------------------------------------------------
-
-    final double machiningTime =
-        jobLength / feedSpeed;
-
-    //------------------------------------------------------------
-    // Material Removal Rate
-    //------------------------------------------------------------
-
-    final double mrr =
-        speed * feed * doc;
-
-    //------------------------------------------------------------
-    // AI Recommendation
-    //------------------------------------------------------------
-
-    String recommendation =
-        "Recommended parameters are within industrial limits.";
-
+    // Smart Insight Assistant Rules Engine
+    String recommendation = "Recommended parameters are within industrial limits.";
     bool safe = true;
 
     if (diameter < 10) {
-      recommendation =
-          "Small diameter detected. Use light feed and shallow depth of cut.";
+      recommendation = "Small diameter detected. Use light feed and shallow depth of cut.";
     }
 
     if (diameter > 150) {
-      recommendation =
-          "Large workpiece detected. Ensure rigid clamping.";
+      recommendation = "Large workpiece detected. Ensure rigid clamping.";
     }
 
     if (rpm > maxRPM) {
-      recommendation =
-          "Calculated RPM exceeds safe limit.";
+      recommendation = "Calculated RPM exceeds safe limit.";
       safe = false;
     }
 
     if (rpm < minRPM) {
-      recommendation =
-          "Calculated RPM is below recommended range.";
+      recommendation = "Calculated RPM is below recommended range.";
       safe = false;
     }
-
-    //------------------------------------------------------------
-    // Return Result
-    //------------------------------------------------------------
 
     return MachiningResult(
       cuttingSpeed: speed,
@@ -319,72 +466,4 @@ class MachiningService {
       safe: safe,
     );
   }
-<<<<<<< HEAD
-=======
-import 'dart:math';
-
-import '../data/machining_database.dart';
-import '../models/machining_model.dart';
-
-class MachiningService {
-
-  static MachiningResult calculate({
-
-    required String material,
-    required String tool,
-
-    required double diameter,
-
-    required bool finishing,
-
-  }) {
-
-    final data =
-        MachiningDatabase
-            .cuttingData[material]![tool]!;
-
-    double speed = data["speed"];
-
-    double feed = data["feed"];
-
-    double doc = data["doc"];
-
-    if(finishing){
-
-      feed *=0.6;
-
-      doc *=0.5;
-
-    }
-
-    final rpm =
-        (1000*speed)/(pi*diameter);
-
-    final machiningTime =
-        diameter/feed;
-
-    final mrr =
-        speed*feed*doc;
-
-    return MachiningResult(
-
-      speed: speed,
-
-      feed: feed,
-
-      rpm: rpm,
-
-      doc: doc,
-
-      machiningTime: machiningTime,
-
-      mrr: mrr,
-
-    );
-
-  }
-
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 }

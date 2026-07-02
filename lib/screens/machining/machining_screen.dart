@@ -1,193 +1,237 @@
-import 'package:flutter/material.dart';
-import '../../services/machining_service.dart';
-import '../../models/machining_model.dart';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-//import '../../widgets/machining/comparison_card.dart';
-import '../../services/api_service.dart';
-import 'dart:async';
-//import '../../services/comparison_service.dart';
-import '../../widgets/machining/kpi_card.dart';
-import '../../widgets/machining/recommended_parameters_card.dart';
-import '../../widgets/machining/live_machine_card.dart';
-import '../../services/ai_recommendation_service.dart';
-<<<<<<< HEAD
-=======
-import '../../widgets/machining/comparison_card.dart';
-import '../../services/api_service.dart';
-import 'dart:async';
-import '../../services/comparison_service.dart';
-import '../../widgets/machining/kpi_card.dart';
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// // import 'package:flutter/material.dart';
+// // import '../../services/machining_service.dart';
+// // import '../../models/machining_model.dart';
+// // <<<<<<< HEAD
+// // <<<<<<< HEAD
+// // =======
+// // >>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// // //import '../../widgets/machining/comparison_card.dart';
+// // import '../../services/api_service.dart';
+// // import 'dart:async';
+// // //import '../../services/comparison_service.dart';
+// // import '../../widgets/machining/kpi_card.dart';
+// // import '../../widgets/machining/recommended_parameters_card.dart';
+// // import '../../widgets/machining/live_machine_card.dart';
+// // import '../../services/ai_recommendation_service.dart';
+// // <<<<<<< HEAD
+// // =======
+// // import '../../widgets/machining/comparison_card.dart';
+// // import '../../services/api_service.dart';
+// // import 'dart:async';
+// // import '../../services/comparison_service.dart';
+// // import '../../widgets/machining/kpi_card.dart';
+// // >>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
+// // =======
+// // >>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// import 'package:flutter/material.dart';
+// import 'dart:async';
 
-class MachiningScreen extends StatefulWidget {
-  const MachiningScreen({super.key});
+// import '../../models/machining_model.dart';
+// import '../../services/api_service.dart';
+// import '../../services/ai_recommendation_service.dart';
+// import '../../services/machining_service.dart';
 
-  @override
-  State<MachiningScreen> createState() => _MachiningScreenState();
-}
-
-class _MachiningScreenState extends State<MachiningScreen> {
-
-  String? tool;
-  String? material;
-  String? operation;
-  MachiningResult? result;
-  Timer? timer;
-  Map<String,dynamic> liveData = {};
-
-  Future<void> loadLiveData() async {
-  try {
-    liveData = await ApiService.getData();
-
-    if (!mounted) return;
-
-    setState(() {});
-  } catch (e) {
-    debugPrint("Live Data Error: $e");
-  }
-}
-
-  bool finishing = false;
-
-  final diameterController = TextEditingController();
-  @override
-void initState() {
-  super.initState();
-
-  loadLiveData();
-
-  timer = Timer.periodic(
-    const Duration(seconds: 5),
-    (_) {
-      loadLiveData();
-    },
-  );
-}
-
-@override
-void dispose() {
-  timer?.cancel();
-  diameterController.dispose();
-  super.dispose();
-}
+// import '../../widgets/machining/kpi_card.dart';
+// import '../../widgets/machining/live_machine_card.dart';
+// import '../../widgets/machining/recommended_parameters_card.dart';
 
 
+//  import '../../widgets/machining/comparison_card.dart';
+//  import '../../services/comparison_service.dart';
 
-  @override
-  Widget build(BuildContext context) {
+// class MachiningScreen extends StatefulWidget {
+//   const MachiningScreen({super.key});
 
-    return Scaffold(
+//   @override
+//   State<MachiningScreen> createState() => _MachiningScreenState();
+// }
 
-      appBar: AppBar(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-  elevation: 0,
-  centerTitle: true,
-  title: const Text(
-    "Smart Machining Assistant",
-    style: TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 22,
-    ),
-  ),
-),
-<<<<<<< HEAD
-=======
-        title: const Text("Machining Assistant"),
-      ),
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+// class _MachiningScreenState extends State<MachiningScreen> {
 
-      body: SingleChildScrollView(
+//   String? tool;
+//   String? material;
+//   String? operation;
+//   MachiningResult? result;
+//   Timer? timer;
+//   Map<String,dynamic> liveData = {};
 
-        padding: const EdgeInsets.all(20),
+//   Future<void> loadLiveData() async {
+//   try {
+//     liveData = await ApiService.getData();
 
-        child: Column(
+//     if (!mounted) return;
 
-          children: [
+//     setState(() {});
+//   } catch (e) {
+//     debugPrint("Live Data Error: $e");
+//   }
+// }
 
-            Card(
-              elevation: 3,
+//   bool finishing = false;
 
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
+//   final diameterController = TextEditingController();
+//   @override
+// void initState() {
+//   super.initState();
 
-              child: Padding(
+//   loadLiveData();
 
-                padding: const EdgeInsets.all(16),
+//   timer = Timer.periodic(
+//     const Duration(seconds: 5),
+//     (_) {
+//       loadLiveData();
+//     },
+//   );
+// }
 
-                child: Column(
+// @override
+// void dispose() {
+//   timer?.cancel();
+//   diameterController.dispose();
+//   super.dispose();
+// }
 
-                  children: [
 
-                    const Text(
-                      "Job Setup",
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
-                    ),
 
-                    const SizedBox(height: 20),
+//   @override
+//   Widget build(BuildContext context) {
 
-                    DropdownButtonFormField<String>(
+//     return Scaffold(
 
-                      decoration: const InputDecoration(
-                        labelText: "Tool Material",
-                        border: OutlineInputBorder(),
-                      ),
+//       appBar: AppBar(
+//   elevation: 0,
+//   centerTitle: true,
+//   title: const Text(
+//     "Smart Machining Assistant",
+//     style: TextStyle(
+//       fontWeight: FontWeight.bold,
+//       fontSize: 22,
+//     ),
+//   ),
+// ),
 
-                      value: tool,
+//       body: SingleChildScrollView(
 
-                      items: const [
+//         padding: const EdgeInsets.all(20),
 
-                        DropdownMenuItem(
-                            value: "HSS",
-                            child: Text("HSS")),
+//         child: Column(
 
-                        DropdownMenuItem(
-                            value: "Carbide",
-                            child: Text("Carbide")),
+//           children: [
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        // DropdownMenuItem(
-                        //     value: "Ceramic",
-                        //     child: Text("Ceramic")),
-=======
-                        DropdownMenuItem(
-                            value: "Ceramic",
-                            child: Text("Ceramic")),
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
-                        // DropdownMenuItem(
-                        //     value: "Ceramic",
-                        //     child: Text("Ceramic")),
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+//             Card(
+//               elevation: 3,
 
-                      ],
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(15),
+//               ),
 
-                      onChanged: (v) {
-                        setState(() {
-                          tool = v;
-                        });
-                      },
+//               child: Padding(
 
-                    ),
+//                 padding: const EdgeInsets.all(16),
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-                    //const SizedBox(height: 20),
+//                 child: Column(
+
+//                   children: [
+
+//                     const Text(
+//                       "Job Setup",
+//                       style: TextStyle(
+//                           fontSize: 22,
+//                           fontWeight: FontWeight.bold),
+//                     ),
+
+//                     const SizedBox(height: 20),
+
+//                     DropdownButtonFormField<String>(
+
+//                       decoration: const InputDecoration(
+//                         labelText: "Tool Material",
+//                         border: OutlineInputBorder(),
+//                       ),
+
+//                       value: tool,
+
+//                       items: const [
+
+//                         DropdownMenuItem(
+//                             value: "HSS",
+//                             child: Text("HSS")),
+
+//                         DropdownMenuItem(
+//                             value: "Carbide",
+//                             child: Text("Carbide")),
+
+//                         // DropdownMenuItem(
+//                         //     value: "Ceramic",
+//                         //     child: Text("Ceramic")),
+
+//                         DropdownMenuItem(
+//                             value: "Ceramic",
+//                             child: Text("Ceramic")),
+
+//                         // DropdownMenuItem(
+//                         //     value: "Ceramic",
+//                         //     child: Text("Ceramic")),
+
+
+//                       ],
+
+//                       onChanged: (v) {
+//                         setState(() {
+//                           tool = v;
+//                         });
+//                       },
+
+//                     ),
+
+
+//                     //const SizedBox(height: 20),
+
+// // Card(
+// //   child: Padding(
+// //     padding: const EdgeInsets.all(20),
+
+// //     child: Column(
+
+// //       crossAxisAlignment: CrossAxisAlignment.start,
+
+// //       children: [
+
+// //         const Text(
+// //           "Live Machine Data",
+// //           style: TextStyle(
+// //             fontSize: 22,
+// //             fontWeight: FontWeight.bold,
+// //           ),
+// //         ),
+
+//         //const SizedBox(height: 20),
+
+//         // Text(
+//         //   "RPM : ${((liveData["vibit1"]?["rpm"] ?? 0) as num).toStringAsFixed(0)}",
+//         // ),
+
+//         // const SizedBox(height: 10),
+
+//         // Text(
+//         //   "Temperature : ${(liveData["vibit1"]?["temperature"] ?? 0)} °C",
+//         // ),
+
+//         // const SizedBox(height: 10),
+
+//         // Text(
+//         //   "Vibration : ${(liveData["vibit1"]?["z_rms_velocity"] ?? 0)} mm/s",
+//         // ),
+
+//         // const SizedBox(height: 10),
+
+//         // Text(
+//         //   "Power : ${(liveData["energy"]?["data"]?["total_kW"] ?? 0)} kW",
+//         // ),
+
+      
+
+//                     const SizedBox(height: 20),
 
 // Card(
 //   child: Padding(
@@ -207,206 +251,170 @@ void dispose() {
 //           ),
 //         ),
 
-        //const SizedBox(height: 20),
+//         const SizedBox(height: 20),
 
-        // Text(
-        //   "RPM : ${((liveData["vibit1"]?["rpm"] ?? 0) as num).toStringAsFixed(0)}",
-        // ),
+//         Text(
+//           "RPM : ${(liveData["vibit1"]?["rpm"] ?? 0).toStringAsFixed(0)}",
+//         ),
 
-        // const SizedBox(height: 10),
+//         const SizedBox(height: 10),
 
-        // Text(
-        //   "Temperature : ${(liveData["vibit1"]?["temperature"] ?? 0)} °C",
-        // ),
+//         Text(
+//           "Temperature : ${(liveData["vibit1"]?["temperature"] ?? 0)} °C",
+//         ),
 
-        // const SizedBox(height: 10),
+//         const SizedBox(height: 10),
 
-        // Text(
-        //   "Vibration : ${(liveData["vibit1"]?["z_rms_velocity"] ?? 0)} mm/s",
-        // ),
+//         Text(
+//           "Vibration : ${(liveData["vibit1"]?["z_rms_velocity"] ?? 0)} mm/s",
+//         ),
 
-        // const SizedBox(height: 10),
+//         const SizedBox(height: 10),
 
-        // Text(
-        //   "Power : ${(liveData["energy"]?["data"]?["total_kW"] ?? 0)} kW",
-        // ),
+//         Text(
+//           "Power : ${(liveData["energy"]?["data"]?["total_kW"] ?? 0)} kW",
+//         ),
 
-      
-<<<<<<< HEAD
-=======
-                    const SizedBox(height: 20),
+//       ],
+//     ),
+//   ),
+// ),
 
-Card(
-  child: Padding(
-    padding: const EdgeInsets.all(20),
 
-    child: Column(
+//                     const SizedBox(height: 18),
 
-      crossAxisAlignment: CrossAxisAlignment.start,
+//                     DropdownButtonFormField<String>(
 
-      children: [
+//                       decoration: const InputDecoration(
+//                         labelText: "Workpiece Material",
+//                         border: OutlineInputBorder(),
+//                       ),
 
-        const Text(
-          "Live Machine Data",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
 
-        const SizedBox(height: 20),
+//                       value: material,
 
-        Text(
-          "RPM : ${(liveData["vibit1"]?["rpm"] ?? 0).toStringAsFixed(0)}",
-        ),
+//                       items: const [
 
-        const SizedBox(height: 10),
+//                         DropdownMenuItem(
 
-        Text(
-          "Temperature : ${(liveData["vibit1"]?["temperature"] ?? 0)} °C",
-        ),
+//     value: "Gray Cast Iron",
+//     child: Text("Gray Cast Iron"),
+// ),
 
-        const SizedBox(height: 10),
+// DropdownMenuItem(
+//     value: "Mild Steel",
+//     child: Text("Mild Steel"),
+// ),
 
-        Text(
-          "Vibration : ${(liveData["vibit1"]?["z_rms_velocity"] ?? 0)} mm/s",
-        ),
+// DropdownMenuItem(
+//     value: "Copper Alloy",
+//     child: Text("Copper Alloy"),
+// ),
 
-        const SizedBox(height: 10),
+// DropdownMenuItem(
+//     value: "Aluminium Alloy",
+//     child: Text("Aluminium Alloy"),
+// ),
 
-        Text(
-          "Power : ${(liveData["energy"]?["data"]?["total_kW"] ?? 0)} kW",
-        ),
+//                             value: "Mild Steel",
+//                             child: Text("Mild Steel")),
 
-      ],
-    ),
-  ),
-),
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+//                         DropdownMenuItem(
+//                             value: "Aluminium",
+//                             child: Text("Aluminium")),
 
-                    const SizedBox(height: 18),
+//                         DropdownMenuItem(
+//                             value: "Copper",
+//                             child: Text("Copper")),
 
-                    DropdownButtonFormField<String>(
+//                         DropdownMenuItem(
+//                             value: "Cast Iron",
+//                             child: Text("Cast Iron")),
 
-                      decoration: const InputDecoration(
-                        labelText: "Workpiece Material",
-                        border: OutlineInputBorder(),
-                      ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      
-=======
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
-                      
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+//                         DropdownMenuItem(
+//                             value: "SS304",
+//                             child: Text("SS304")),
 
-                      value: material,
 
-                      items: const [
+//                       ],
 
-                        DropdownMenuItem(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-    value: "Gray Cast Iron",
-    child: Text("Gray Cast Iron"),
-),
+//                       onChanged: (v) {
+//                         setState(() {
+//                           material = v;
+//                         });
+//                       },
 
-DropdownMenuItem(
-    value: "Mild Steel",
-    child: Text("Mild Steel"),
-),
+//                     ),
 
-DropdownMenuItem(
-    value: "Copper Alloy",
-    child: Text("Copper Alloy"),
-),
+//                     const SizedBox(height: 18),
 
-DropdownMenuItem(
-    value: "Aluminium Alloy",
-    child: Text("Aluminium Alloy"),
-),
-<<<<<<< HEAD
-=======
-                            value: "Mild Steel",
-                            child: Text("Mild Steel")),
+//                     DropdownButtonFormField<String>(
 
-                        DropdownMenuItem(
-                            value: "Aluminium",
-                            child: Text("Aluminium")),
+//                       decoration: const InputDecoration(
+//                         labelText: "Operation",
+//                         border: OutlineInputBorder(),
+//                       ),
 
-                        DropdownMenuItem(
-                            value: "Copper",
-                            child: Text("Copper")),
+//                       value: operation,
 
-                        DropdownMenuItem(
-                            value: "Cast Iron",
-                            child: Text("Cast Iron")),
+//                       items: const [
 
-                        DropdownMenuItem(
-                            value: "SS304",
-                            child: Text("SS304")),
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+//                         DropdownMenuItem(
+//                             value: "Turning",
+//                             child: Text("Turning")),
 
-                      ],
+//                         DropdownMenuItem(
+//                             value: "Facing",
+//                             child: Text("Facing")),
 
-                      onChanged: (v) {
-                        setState(() {
-                          material = v;
-                        });
-                      },
+//                         DropdownMenuItem(
+//                             value: "Drilling",
+//                             child: Text("Drilling")),
 
-                    ),
+//                         DropdownMenuItem(
+//                             value: "Threading",
+//                             child: Text("Threading")),
 
-                    const SizedBox(height: 18),
+//                       ],
 
-                    DropdownButtonFormField<String>(
+//                       onChanged: (v) {
+//                         setState(() {
+//                           operation = v;
+//                         });
+//                       },
 
-                      decoration: const InputDecoration(
-                        labelText: "Operation",
-                        border: OutlineInputBorder(),
-                      ),
+//                     ),
 
-                      value: operation,
+// //const SizedBox(height: 20),
 
-                      items: const [
+// // const Text(
+// //   "Comparison",
+// //   style: TextStyle(
+// //     fontSize: 22,
+// //     fontWeight: FontWeight.bold,
+// //   ),
+// // ),
 
-                        DropdownMenuItem(
-                            value: "Turning",
-                            child: Text("Turning")),
+// //const SizedBox(height: 10),
 
-                        DropdownMenuItem(
-                            value: "Facing",
-                            child: Text("Facing")),
+// // ComparisonCard(
 
-                        DropdownMenuItem(
-                            value: "Drilling",
-                            child: Text("Drilling")),
+// //   title: "RPM",
 
-                        DropdownMenuItem(
-                            value: "Threading",
-                            child: Text("Threading")),
+// //   recommended:
+// //       result == null
+// //           ? "--"
+// //           : result!.rpm.toStringAsFixed(0),
 
-                      ],
+// //   actual:
+// //       ((liveData["vibit1"]?["rpm"] ?? 0) as num)
+// //           .toString(),
 
-                      onChanged: (v) {
-                        setState(() {
-                          operation = v;
-                        });
-                      },
+// //   color: Colors.green,
 
-                    ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-//const SizedBox(height: 20),
+// // ),
+
+// const SizedBox(height: 20),
 
 // const Text(
 //   "Comparison",
@@ -416,7 +424,7 @@ DropdownMenuItem(
 //   ),
 // ),
 
-//const SizedBox(height: 10),
+// const SizedBox(height: 10),
 
 // ComparisonCard(
 
@@ -434,239 +442,371 @@ DropdownMenuItem(
 //   color: Colors.green,
 
 // ),
-<<<<<<< HEAD
-=======
-const SizedBox(height: 20),
 
-const Text(
-  "Comparison",
-  style: TextStyle(
-    fontSize: 22,
-    fontWeight: FontWeight.bold,
-  ),
-),
+//                     const SizedBox(height: 18),
 
-const SizedBox(height: 10),
+//                     TextField(
 
-ComparisonCard(
+//                       controller: diameterController,
 
-  title: "RPM",
+//                       keyboardType:
+//                           TextInputType.number,
 
-  recommended:
-      result == null
-          ? "--"
-          : result!.rpm.toStringAsFixed(0),
+//                       decoration: const InputDecoration(
 
-  actual:
-      ((liveData["vibit1"]?["rpm"] ?? 0) as num)
-          .toString(),
+//                         labelText: "Diameter (mm)",
 
-  color: Colors.green,
+//                         border: OutlineInputBorder(),
 
-),
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-                    const SizedBox(height: 18),
+//                       ),
 
-                    TextField(
+//                     ),
 
-                      controller: diameterController,
+//                     const SizedBox(height: 20),
 
-                      keyboardType:
-                          TextInputType.number,
+//                     SwitchListTile(
 
-                      decoration: const InputDecoration(
+//                       value: finishing,
 
-                        labelText: "Diameter (mm)",
+//                       title: const Text("Finishing"),
 
-                        border: OutlineInputBorder(),
+//                       onChanged: (v) {
 
-                      ),
+//                         setState(() {
 
-                    ),
+//                           finishing = v;
 
-                    const SizedBox(height: 20),
+//                         });
 
-                    SwitchListTile(
+//                       },
 
-                      value: finishing,
+//                     ),
 
-                      title: const Text("Finishing"),
+//                     const SizedBox(height: 25),
 
-                      onChanged: (v) {
-
-                        setState(() {
-
-                          finishing = v;
-
-                        });
-
-                      },
-
-                    ),
-
-                    const SizedBox(height: 25),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-SizedBox(
-  width: double.infinity,
-  height: 58,
-  child: ElevatedButton.icon(
-    icon: const Icon(Icons.calculate),
-    label: const Text(
-      "Calculate ",
-      style: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
+// SizedBox(
+//   width: double.infinity,
+//   height: 58,
+//   child: ElevatedButton.icon(
+//     icon: const Icon(Icons.calculate),
+//     label: const Text(
+//       "Calculate ",
+//       style: TextStyle(
+//         fontSize: 18,
+//         fontWeight: FontWeight.bold,
+//       ),
+//     ),
    
 
-                        onPressed: () {
+//                         onPressed: () {
 
-  if (tool == null ||
-    material == null ||
-    operation == null ||
-    diameterController.text.isEmpty) {
+//   if (tool == null ||
+//     material == null ||
+//     operation == null ||
+//     diameterController.text.isEmpty) {
 
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text("Please fill all fields"),
-    ),
-  );
+//   ScaffoldMessenger.of(context).showSnackBar(
+//     const SnackBar(
+//       content: Text("Please fill all fields"),
+//     ),
+//   );
 
-  return;
-}
+//   return;
+// }
 
-result = MachiningService.calculate(
-  material: material!,
-  tool: tool!,
-  diameter: double.parse(diameterController.text),
-  finishing: finishing,
-);
+// result = MachiningService.calculate(
+//   material: material!,
+//   tool: tool!,
+//   diameter: double.parse(diameterController.text),
+//   finishing: finishing,
+// );
 
-setState(() {});
+// setState(() {});
 
-  // result =
-  //     MachiningService.calculate(
+//   // result =
+//   //     MachiningService.calculate(
 
-  //   material: material!,
+//   //   material: material!,
 
-  //   tool: tool!,
+//   //   tool: tool!,
 
-  //   diameter:
-  //       double.parse(
-  //           diameterController.text),
+//   //   diameter:
+//   //       double.parse(
+//   //           diameterController.text),
 
-  //   finishing: finishing,
+//   //   finishing: finishing,
 
-  // );
+//   // );
 
-  // setState(() {});
+//   // setState(() {});
 
-},
+// },
 
-                        // child: const Text(
-                        //   "CALCULATE",
-                        //   style: TextStyle(
-                        //       fontSize: 18),
-                        // ),
+//                         // child: const Text(
+//                         //   "CALCULATE",
+//                         //   style: TextStyle(
+//                         //       fontSize: 18),
+//                         // ),
 
-                      ),
+//                       ),
 
-                    ),
-<<<<<<< HEAD
-=======
+//                     ),
 
-                    SizedBox(
 
-                      width: double.infinity,
+//                     SizedBox(
 
-                      height: 55,
+//                       width: double.infinity,
 
-                      child: ElevatedButton(
+//                       height: 55,
 
-                        onPressed: () {
+//                       child: ElevatedButton(
 
-  if(tool==null || material==null) return;
+//                         onPressed: () {
 
-  result =
-      MachiningService.calculate(
+//   if(tool==null || material==null) return;
 
-    material: material!,
+//   result =
+//       MachiningService.calculate(
 
-    tool: tool!,
+//     material: material!,
 
-    diameter:
-        double.parse(
-            diameterController.text),
+//     tool: tool!,
 
-    finishing: finishing,
+//     diameter:
+//         double.parse(
+//             diameterController.text),
 
-  );
+//     finishing: finishing,
 
-  setState(() {});
+//   );
 
-},
+//   setState(() {});
 
-                        child: const Text(
-                          "CALCULATE",
-                          style: TextStyle(
-                              fontSize: 18),
-                        ),
+// },
 
-                      ),
+//                         child: const Text(
+//                           "CALCULATE",
+//                           style: TextStyle(
+//                               fontSize: 18),
+//                         ),
 
-                    )
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+//                       ),
 
-                  ],
+//                     )
 
-                ),
 
-              ),
+//                   ],
 
-            ),
+//                 ),
 
-            const SizedBox(height: 25),
+//               ),
 
-            Card(
+//             ),
 
-              child: Padding(
+//             const SizedBox(height: 25),
 
-                padding: const EdgeInsets.all(20),
+//             Card(
 
-                child: Column(
+//               child: Padding(
 
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+//                 padding: const EdgeInsets.all(20),
 
-                  children:  [
+//                 child: Column(
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-                    if (result != null)
-  RecommendedParametersCard(
-    result: result!,
-  ),
-  const SizedBox(height: 20),
+//                   crossAxisAlignment:
+//                       CrossAxisAlignment.start,
 
-LiveMachineCard(
-  data: liveData,
-),
-      ],
-    ),
-  ),
-),
+//                   children:  [
+
+
+//                     if (result != null)
+//   RecommendedParametersCard(
+//     result: result!,
+//   ),
+//   const SizedBox(height: 20),
+
+// LiveMachineCard(
+//   data: liveData,
+// ),
+//       ],
+//     ),
+//   ),
+// ),
 
                     
+
+// //                     SizedBox(height: 20),
+
+// //                     Text(
+// // "Cutting Speed : ${result?.speed.toStringAsFixed(1) ?? '--'} m/min"),
+
+// //                     SizedBox(height: 10),
+
+// //                     Text(
+// // "Feed : ${result?.feed.toStringAsFixed(2) ?? '--'} mm/rev"),
+
+// //                     SizedBox(height: 10),
+
+// //                     Text(
+// // "RPM : ${result?.rpm.toStringAsFixed(0) ?? '--'}"),
+
+// //                     SizedBox(height: 10),
+
+// //                     Text(
+// // "DOC : ${result?.doc.toStringAsFixed(1) ?? '--'} mm"),
+
+// //                     SizedBox(height: 10),
+
+// //                     Text(
+// // "MRR : ${result?.mrr.toStringAsFixed(2) ?? '--'}"),
+// // SizedBox(height: 10),
+
+// // Text(
+// // "Machining Time : ${result?.machiningTime.toStringAsFixed(2) ?? '--'} min"),
+
+// //                   ],
+
+// //                 ),
+
+// //               ),
+             
+
+// //             ),
+// //              const SizedBox(height:25),
+
+// // Card(
+// //   elevation: 3,
+
+// //   shape: RoundedRectangleBorder(
+// //     borderRadius: BorderRadius.circular(18),
+// //   ),
+
+// //   child: Padding(
+// //     padding: const EdgeInsets.all(20),
+
+// //     child: Column(
+
+// //       crossAxisAlignment:
+// //           CrossAxisAlignment.start,
+
+// //       children: [
+
+// //         const Text(
+// //           "Live Machine Data",
+
+// //           style: TextStyle(
+// //             fontSize: 22,
+// //             fontWeight: FontWeight.bold,
+// //           ),
+// //         ),
+
+// //         const SizedBox(height:20),
+
+// //         Row(
+// //           children: [
+
+// //             Expanded(
+// //               child: KpiCard(
+// //   icon: Icons.speed,
+// //   title: "RPM",
+// //   value: ((liveData["vibit1"]?["rpm"] ?? 0).toDouble()).toStringAsFixed(0),
+// //   unit: "RPM",
+// //   color: Colors.blue,
+// // ),
+// //             ),
+
+// //             const SizedBox(width:15),
+
+// //             Expanded(
+// //               child: KpiCard(
+// //   icon: Icons.thermostat,
+// //   title: "Temperature",
+// //   value: "${liveData["vibit1"]?["temperature"] ?? 0}",
+// //   unit: "°C",
+// //   color: Colors.red,
+// // ),
+// //             ),
+
+// //           ],
+// //         ),
+
+// //         const SizedBox(height:15),
+
+// //         Row(
+// //           children: [
+
+// //             Expanded(
+// //               child: KpiCard(
+// //   icon: Icons.graphic_eq,
+// //   title: "Vibration",
+// //   value: "${liveData["vibit1"]?["z_rms_velocity"] ?? 0}",
+// //   unit: "mm/s",
+// //   color: Colors.green,
+// // ),
+// //             ),
+
+// //             const SizedBox(width:15),
+
+// //             Expanded(
+// //               child: KpiCard(
+// //   icon: Icons.bolt,
+// //   title: "Power",
+// //   value: "${liveData["energy"]?["data"]?["total_kW"] ?? 0}",
+// //   unit: "kW",
+// //   color: Colors.orange,
+// // ),
+//          // ),
+
+//           //],
+//        // ),
+
+//       //],
+//    // ),
+//   //),
+// //),
+// // Card(
+// //   elevation: 2,
+// //   shape: RoundedRectangleBorder(
+// //     borderRadius: BorderRadius.circular(18),
+// //   ),
+// //   child: Padding(
+// //     padding: const EdgeInsets.all(18),
+// //     child: Column(
+// //       crossAxisAlignment: CrossAxisAlignment.start,
+// //       children: [
+// //         const Text(
+// //           "AI Recommendation",
+// //           style: TextStyle(
+// //             fontSize: 20,
+// //             fontWeight: FontWeight.bold,
+// //           ),
+// //         ),
+
+// //         const SizedBox(height: 15),
+
+// //         if (result != null)
+// //           const Text(
+// //             "AI insights will appear here once enabled.",
+// //           )
+// //         else
+// //           const Text(
+// //             "Run calculation to get AI recommendations.",
+// //           )
+// //                 ],
+// //     ),
+// //   ),
+// // ),
+//           ],
+//         ),
+//       ),
+//     );
+
+//                     Text(
+//                       "Recommended Parameters",
+//                       style: TextStyle(
+//                           fontSize: 22,
+//                           fontWeight: FontWeight.bold),
+//                     ),
 
 //                     SizedBox(height: 20),
 
@@ -702,193 +842,313 @@ LiveMachineCard(
 //                 ),
 
 //               ),
-             
 
-//             ),
-//              const SizedBox(height:25),
-
-// Card(
-//   elevation: 3,
-
-//   shape: RoundedRectangleBorder(
-//     borderRadius: BorderRadius.circular(18),
-//   ),
-
-//   child: Padding(
-//     padding: const EdgeInsets.all(20),
-
-//     child: Column(
-
-//       crossAxisAlignment:
-//           CrossAxisAlignment.start,
-
-//       children: [
-
-//         const Text(
-//           "Live Machine Data",
-
-//           style: TextStyle(
-//             fontSize: 22,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
-
-//         const SizedBox(height:20),
-
-//         Row(
-//           children: [
-
-//             Expanded(
-//               child: KpiCard(
-//   icon: Icons.speed,
-//   title: "RPM",
-//   value: ((liveData["vibit1"]?["rpm"] ?? 0).toDouble()).toStringAsFixed(0),
-//   unit: "RPM",
-//   color: Colors.blue,
-// ),
-//             ),
-
-//             const SizedBox(width:15),
-
-//             Expanded(
-//               child: KpiCard(
-//   icon: Icons.thermostat,
-//   title: "Temperature",
-//   value: "${liveData["vibit1"]?["temperature"] ?? 0}",
-//   unit: "°C",
-//   color: Colors.red,
-// ),
 //             ),
 
 //           ],
+
 //         ),
 
-//         const SizedBox(height:15),
+//       ),
 
-//         Row(
-//           children: [
+//     );
 
-//             Expanded(
-//               child: KpiCard(
-//   icon: Icons.graphic_eq,
-//   title: "Vibration",
-//   value: "${liveData["vibit1"]?["z_rms_velocity"] ?? 0}",
-//   unit: "mm/s",
-//   color: Colors.green,
-// ),
-//             ),
 
-//             const SizedBox(width:15),
+//   }
+// }
+import 'package:flutter/material.dart';
+import 'dart:async';
 
-//             Expanded(
-//               child: KpiCard(
-//   icon: Icons.bolt,
-//   title: "Power",
-//   value: "${liveData["energy"]?["data"]?["total_kW"] ?? 0}",
-//   unit: "kW",
-//   color: Colors.orange,
-// ),
-         // ),
+import '../../models/machining_model.dart';
+import '../../services/api_service.dart';
+import '../../services/machining_service.dart';
 
-          //],
-       // ),
+import '../../widgets/machining/kpi_card.dart';
+import '../../widgets/machining/live_machine_card.dart';
+import '../../widgets/machining/recommended_parameters_card.dart';
+import '../../widgets/machining/comparison_card.dart';
 
-      //],
-   // ),
-  //),
-//),
-// Card(
-//   elevation: 2,
-//   shape: RoundedRectangleBorder(
-//     borderRadius: BorderRadius.circular(18),
-//   ),
-//   child: Padding(
-//     padding: const EdgeInsets.all(18),
-//     child: Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const Text(
-//           "AI Recommendation",
-//           style: TextStyle(
-//             fontSize: 20,
-//             fontWeight: FontWeight.bold,
-//           ),
-//         ),
+class MachiningScreen extends StatefulWidget {
+  const MachiningScreen({super.key});
 
-//         const SizedBox(height: 15),
+  @override
+  State<MachiningScreen> createState() => _MachiningScreenState();
+}
 
-//         if (result != null)
-//           const Text(
-//             "AI insights will appear here once enabled.",
-//           )
-//         else
-//           const Text(
-//             "Run calculation to get AI recommendations.",
-//           )
-//                 ],
-//     ),
-//   ),
-// ),
-          ],
+class _MachiningScreenState extends State<MachiningScreen> {
+  String? tool;
+  String? material;
+  String? operation;
+  MachiningResult? result;
+  Timer? timer;
+  Map<String, dynamic> liveData = {};
+  bool finishing = false;
+  final diameterController = TextEditingController();
+
+  Future<void> loadLiveData() async {
+    try {
+      final data = await ApiService.getData();
+      if (!mounted) return;
+      setState(() {
+        liveData = data;
+      });
+    } catch (e) {
+      debugPrint("Live Data Error: $e");
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadLiveData();
+    timer = Timer.periodic(
+      const Duration(seconds: 5),
+      (_) => loadLiveData(),
+    );
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    diameterController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Safe extraction of nested dynamic map values to avoid crashes
+    final rawRpm = liveData["vibit1"]?["rpm"];
+    final liveRpm = rawRpm is num ? rawRpm.toStringAsFixed(0) : "0";
+
+    final rawTemp = liveData["vibit1"]?["temperature"] ?? 0;
+    final rawVib = liveData["vibit1"]?["z_rms_velocity"] ?? 0;
+    final rawPower = liveData["energy"]?["data"]?["total_kW"] ?? 0;
+
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          "Smart Machining Assistant",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
         ),
       ),
-    );
-<<<<<<< HEAD
-=======
-                    Text(
-                      "Recommended Parameters",
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
-                    ),
-
-                    SizedBox(height: 20),
-
-                    Text(
-"Cutting Speed : ${result?.speed.toStringAsFixed(1) ?? '--'} m/min"),
-
-                    SizedBox(height: 10),
-
-                    Text(
-"Feed : ${result?.feed.toStringAsFixed(2) ?? '--'} mm/rev"),
-
-                    SizedBox(height: 10),
-
-                    Text(
-"RPM : ${result?.rpm.toStringAsFixed(0) ?? '--'}"),
-
-                    SizedBox(height: 10),
-
-                    Text(
-"DOC : ${result?.doc.toStringAsFixed(1) ?? '--'} mm"),
-
-                    SizedBox(height: 10),
-
-                    Text(
-"MRR : ${result?.mrr.toStringAsFixed(2) ?? '--'}"),
-SizedBox(height: 10),
-
-Text(
-"Machining Time : ${result?.machiningTime.toStringAsFixed(2) ?? '--'} min"),
-
-                  ],
-
-                ),
-
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            // Job Setup Input Card
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
               ),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Job Setup",
+                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 20),
 
+                    // Tool Dropdown
+                    DropdownButtonFormField<String>(
+                      decoration: const InputDecoration(
+                        labelText: "Tool Material",
+                        border: OutlineInputBorder(),
+                      ),
+                      value: tool,
+                      items: const [
+                        DropdownMenuItem(value: "HSS", child: Text("HSS")),
+                        DropdownMenuItem(value: "Carbide", child: Text("Carbide")),
+                        DropdownMenuItem(value: "Ceramic", child: Text("Ceramic")),
+                      ],
+                      onChanged: (v) => setState(() => tool = v),
+                    ),
+                    const SizedBox(height: 18),
+
+                    // Workpiece Dropdown
+                    DropdownButtonFormField<String>(
+                      decoration: const InputDecoration(
+                        labelText: "Workpiece Material",
+                        border: OutlineInputBorder(),
+                      ),
+                      value: material,
+                      items: const [
+                        DropdownMenuItem(value: "Gray Cast Iron", child: Text("Gray Cast Iron")),
+                        DropdownMenuItem(value: "Mild Steel", child: Text("Mild Steel")),
+                        DropdownMenuItem(value: "Copper Alloy", child: Text("Copper Alloy")),
+                        DropdownMenuItem(value: "Aluminium Alloy", child: Text("Aluminium Alloy")),
+                        DropdownMenuItem(value: "SS304", child: Text("SS304")),
+                      ],
+                      onChanged: (v) => setState(() => material = v),
+                    ),
+                    const SizedBox(height: 18),
+
+                    // Operation Dropdown
+                    DropdownButtonFormField<String>(
+                      decoration: const InputDecoration(
+                        labelText: "Operation",
+                        border: OutlineInputBorder(),
+                      ),
+                      value: operation,
+                      items: const [
+                        DropdownMenuItem(value: "Turning", child: Text("Turning")),
+                        DropdownMenuItem(value: "Facing", child: Text("Facing")),
+                        DropdownMenuItem(value: "Drilling", child: Text("Drilling")),
+                        DropdownMenuItem(value: "Threading", child: Text("Threading")),
+                      ],
+                      onChanged: (v) => setState(() => operation = v),
+                    ),
+                    const SizedBox(height: 18),
+
+                    // Diameter Text Input Field
+                    TextField(
+                      controller: diameterController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        labelText: "Diameter (mm)",
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    // Finishing Switch Toggle
+                    SwitchListTile(
+                      value: finishing,
+                      title: const Text("Finishing"),
+                      onChanged: (v) => setState(() => finishing = v),
+                    ),
+                    const SizedBox(height: 25),
+
+                    // Calculate Action Button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 58,
+                      child: ElevatedButton.icon(
+                        icon: const Icon(Icons.calculate),
+                        label: const Text(
+                          "Calculate",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        onPressed: () {
+                          if (tool == null ||
+                              material == null ||
+                              operation == null ||
+                              diameterController.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("Please fill all fields")),
+                            );
+                            return;
+                          }
+
+                          setState(() {
+                            result = MachiningService.calculate(
+                              material: material!,
+                              tool: tool!,
+                              diameter: double.parse(diameterController.text),
+                              finishing: finishing,
+                            );
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
+            const SizedBox(height: 25),
 
+            // Comparison Segment
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Comparison Metrics",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ComparisonCard(
+  title: "RPM",
+  recommended: result == null
+      ? "--"
+      : result!.spindleRPM.toStringAsFixed(0),
+  actual: liveRpm,
+  color: Colors.green,
+),
+            const SizedBox(height: 25),
+
+            // Recommended Output Section (shows dynamically when calculated)
+            if (result != null) ...[
+              RecommendedParametersCard(result: result!),
+              const SizedBox(height: 20),
+            ],
+
+            // Full Comprehensive Analytics Card
+            LiveMachineCard(data: liveData),
+            const SizedBox(height: 25),
+
+            // // Live Dashboard KPIs (Grid View)
+            // const Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: Text(
+            //     "Live Machine Data Monitor",
+            //     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            //   ),
+            // ),
+            // const SizedBox(height: 15),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: KpiCard(
+            //         icon: Icons.speed,
+            //         title: "RPM",
+            //         value: liveRpm,
+            //         unit: "RPM",
+            //         color: Colors.blue,
+            //       ),
+            //     ),
+            //     const SizedBox(width: 15),
+            //     Expanded(
+            //       child: KpiCard(
+            //         icon: Icons.thermostat,
+            //         title: "Temperature",
+            //         value: "$rawTemp",
+            //         unit: "°C",
+            //         color: Colors.red,
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // const SizedBox(height: 15),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: KpiCard(
+            //         icon: Icons.graphic_eq,
+            //         title: "Vibration",
+            //         value: "$rawVib",
+            //         unit: "mm/s",
+            //         color: Colors.green,
+            //       ),
+            //     ),
+            //     const SizedBox(width: 15),
+            //     Expanded(
+            //       child: KpiCard(
+            //         icon: Icons.bolt,
+            //         title: "Power",
+            //         value: "$rawPower",
+            //         unit: "kW",
+            //         color: Colors.orange,
+            //       ),
+            //     ),
+            //   ],
+            // ),
           ],
-
         ),
-
       ),
-
     );
-
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   }
 }

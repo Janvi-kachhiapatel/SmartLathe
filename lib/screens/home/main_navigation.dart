@@ -11,14 +11,11 @@ import 'package:smart_lathe_frontend/screens/history/history_screen.dart';
 import 'package:smart_lathe_frontend/screens/profile/profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 //import 'package:smart_lathe_frontend/screens/admin/admin_dashboard.dart';
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 import 'package:smart_lathe_frontend/screens/machining/machining_screen.dart';
-=======
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
+
 import 'package:smart_lathe_frontend/screens/machining/machining_screen.dart';
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
+
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -51,42 +48,28 @@ List<Widget> get screens {
   if (role == "administrator") {
 
     return const [
-      DashboardScreen(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-      MachiningScreen(),
-=======
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
-      MachiningScreen(),
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-      Vibit1Screen(),
-      Vibit2Screen(),
-      EnergyScreen(),
-      PositionScreen(),
-      HistoryScreen(),
-      //AdminDashboard(),
-      ProfileScreen(),
-    ];
+  DashboardScreen(),
+  MachiningScreen(),
+  Vibit1Screen(),
+  Vibit2Screen(),
+  EnergyScreen(),
+  PositionScreen(),
+  HistoryScreen(),
+  //AdminDashboard(),
+  ProfileScreen(),
+];
   }
 
-  return const [
-    DashboardScreen(),
-<<<<<<< HEAD
-<<<<<<< HEAD
-    MachiningScreen(),
-=======
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
-    MachiningScreen(),
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-    Vibit1Screen(),
-    Vibit2Screen(),
-    EnergyScreen(),
-    PositionScreen(),
-    HistoryScreen(),
-    ProfileScreen(),
-  ];
+return const [
+  DashboardScreen(),
+  MachiningScreen(),
+  Vibit1Screen(),
+  Vibit2Screen(),
+  EnergyScreen(),
+  PositionScreen(),
+  HistoryScreen(),
+  ProfileScreen(),
+];
 }
 
 List<BottomNavigationBarItem> get items {
@@ -99,19 +82,10 @@ List<BottomNavigationBarItem> get items {
         icon: Icon(Icons.dashboard),
         label: 'Dashboard',
       ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
-      BottomNavigationBarItem(
+     BottomNavigationBarItem(
   icon: Icon(Icons.precision_manufacturing),
   label: 'Machining',
 ),
-<<<<<<< HEAD
-=======
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 
       BottomNavigationBarItem(
         icon: Icon(Icons.memory),

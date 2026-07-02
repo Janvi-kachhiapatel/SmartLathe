@@ -1,23 +1,159 @@
+// import 'package:flutter/material.dart';
+
+// class KpiCard extends StatelessWidget {
+
+//   final IconData icon;
+//   final String title;
+//   final String value;
+//   final String unit;
+
+
+//   final IconData icon;
+//   final String title;
+//   final String value;
+
+//   final Color color;
+
+//   const KpiCard({
+//     super.key,
+//     required this.icon,
+//     required this.title,
+//     required this.value,
+
+//     required this.unit,
+
+//     required this.unit,
+
+//     required this.color,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+
+//     return Container(
+//       height: 145,
+//       padding: const EdgeInsets.symmetric(
+//         horizontal: 12,
+//         vertical: 16,
+//       ),
+//       decoration: BoxDecoration(
+//         color: Colors.white,
+//         borderRadius: BorderRadius.circular(18),
+//         boxShadow: [
+//           BoxShadow(
+//             color: Colors.grey.shade200,
+//             blurRadius: 12,
+//             offset: const Offset(0, 5),
+//           ),
+//         ],
+//       ),
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         children: [
+//           Icon(
+//             icon,
+//             size: 30,
+//             color: color,
+//           ),
+//           Text(
+//             title,
+//             style: const TextStyle(
+//               fontWeight: FontWeight.w600,
+//               fontSize: 15,
+//             ),
+//           ),
+//           Text(
+//             value,
+//             style: TextStyle(
+//               fontSize: 28,
+//               color: color,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+//           Text(
+//             unit,
+//             style: const TextStyle(
+//               fontSize: 13,
+//               color: Colors.grey,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+
+//     return Container(
+
+//       padding: const EdgeInsets.all(18),
+
+//       decoration: BoxDecoration(
+
+//         color: Colors.white,
+
+//         borderRadius: BorderRadius.circular(18),
+
+//         boxShadow: const [
+
+//           BoxShadow(
+//             blurRadius: 8,
+//             color: Colors.black12,
+//           )
+
+//         ],
+
+//       ),
+
+//       child: Column(
+
+//         children: [
+
+//           CircleAvatar(
+
+//             radius: 25,
+
+//             backgroundColor: color.withOpacity(.15),
+
+//             child: Icon(icon,color: color),
+
+//           ),
+
+//           const SizedBox(height:12),
+
+//           Text(
+//             title,
+//             style: const TextStyle(
+//               fontWeight: FontWeight.bold,
+//             ),
+//           ),
+
+//           const SizedBox(height:8),
+
+//           Text(
+//             value,
+//             style: TextStyle(
+//               fontSize:22,
+//               color: color,
+//               fontWeight: FontWeight.bold,
+//             ),
+//           )
+
+//         ],
+
+//       ),
+
+//     );
+
+//   }
+
+// }
 import 'package:flutter/material.dart';
 
 class KpiCard extends StatelessWidget {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   final IconData icon;
   final String title;
   final String value;
   final String unit;
-<<<<<<< HEAD
-=======
-
-  final IconData icon;
-  final String title;
-  final String value;
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
   final Color color;
 
   const KpiCard({
@@ -25,29 +161,14 @@ class KpiCard extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.value,
-<<<<<<< HEAD
-<<<<<<< HEAD
     required this.unit,
-=======
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
-    required this.unit,
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
     required this.color,
   });
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
     return Container(
-      height: 145,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 16,
-      ),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -60,32 +181,37 @@ class KpiCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            size: 30,
-            color: color,
+          CircleAvatar(
+            radius: 25,
+            backgroundColor: color.withOpacity(.15),
+            child: Icon(icon, color: color, size: 26),
           ),
+          const SizedBox(height: 12),
           Text(
             title,
             style: const TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 15,
+              fontSize: 14,
+              color: Colors.black54,
             ),
           ),
+          const SizedBox(height: 4),
           Text(
             value,
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 24,
               color: color,
               fontWeight: FontWeight.bold,
             ),
           ),
+          const SizedBox(height: 2),
           Text(
             unit,
             style: const TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               color: Colors.grey,
             ),
           ),
@@ -93,73 +219,4 @@ class KpiCard extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
-=======
-
-    return Container(
-
-      padding: const EdgeInsets.all(18),
-
-      decoration: BoxDecoration(
-
-        color: Colors.white,
-
-        borderRadius: BorderRadius.circular(18),
-
-        boxShadow: const [
-
-          BoxShadow(
-            blurRadius: 8,
-            color: Colors.black12,
-          )
-
-        ],
-
-      ),
-
-      child: Column(
-
-        children: [
-
-          CircleAvatar(
-
-            radius: 25,
-
-            backgroundColor: color.withOpacity(.15),
-
-            child: Icon(icon,color: color),
-
-          ),
-
-          const SizedBox(height:12),
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          const SizedBox(height:8),
-
-          Text(
-            value,
-            style: TextStyle(
-              fontSize:22,
-              color: color,
-              fontWeight: FontWeight.bold,
-            ),
-          )
-
-        ],
-
-      ),
-
-    );
-
-  }
-
->>>>>>> 9c5fb487dc294f720fb3d4a2b3f7be04454fe9ce
-=======
->>>>>>> 292fff0476037f438e8d105c003a0f2e0c69c191
 }

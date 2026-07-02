@@ -97,108 +97,227 @@ class LiveMachineCard extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
+//   @override
+//   Widget build(BuildContext context) {
 
-    return Card(
+//     return Card(
 
-      elevation: 4,
+//       elevation: 4,
 
-      shape: RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.circular(18),
-      ),
+//       shape: RoundedRectangleBorder(
+//         borderRadius:
+//             BorderRadius.circular(18),
+//       ),
 
-      child: Padding(
+//       child: Padding(
 
-        padding: const EdgeInsets.all(18),
+//         padding: const EdgeInsets.all(18),
 
-        child: Column(
+//         child: Column(
 
-          crossAxisAlignment:
-              CrossAxisAlignment.start,
+//           crossAxisAlignment:
+//               CrossAxisAlignment.start,
 
-          children: [
+//           children: [
 
-            Row(
+//             Row(
 
-              children: const [
+//               children: const [
 
-                Icon(
-                  Icons.memory,
-                  color: Colors.green,
+//                 Icon(
+//                   Icons.memory,
+//                   color: Colors.green,
+//                 ),
+
+//                 SizedBox(width: 10),
+
+//                 Text(
+//                   "Live Machine Data",
+//                   style: TextStyle(
+//                     fontSize: 21,
+//                     fontWeight: FontWeight.bold,
+//                   ),
+//                 ),
+//               ],
+//             ),
+
+//             const SizedBox(height: 20),
+
+//             machineTile(
+//               Icons.speed,
+//               Colors.blue,
+//               "Live RPM",
+//               value("rpm")
+//                   .toStringAsFixed(0),
+//               "RPM",
+//             ),
+
+//             machineTile(
+//               Icons.linear_scale,
+//               Colors.orange,
+//               "Feed Rate",
+//               value("feed")
+//                   .toStringAsFixed(2),
+//               "mm/rev",
+//             ),
+
+//             machineTile(
+//               Icons.thermostat,
+//               Colors.red,
+//               "Temperature",
+//               value("temperature")
+//                   .toStringAsFixed(1),
+//               "°C",
+//             ),
+
+//             machineTile(
+//               Icons.vibration,
+//               Colors.deepPurple,
+//               "Vibration",
+//               value("vibration")
+//                   .toStringAsFixed(2),
+//               "mm/s",
+//             ),
+
+//             machineTile(
+//               Icons.build,
+//               Colors.teal,
+//               "Tool Wear",
+//               value("toolWear")
+//                   .toStringAsFixed(0),
+//               "%",
+//             ),
+
+//             machineTile(
+//               Icons.timer,
+//               Colors.green,
+//               "Machine Runtime",
+//               value("runtime")
+//                   .toStringAsFixed(0),
+//               "min",
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+@override
+Widget build(BuildContext context) {
+
+  final vibit = data["vibit1"] ?? {};
+  final energy = data["energy"]?["data"] ?? {};
+
+  return Card(
+    elevation: 4,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(18),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.all(18),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+
+          const Row(
+            children: [
+              Icon(Icons.memory, color: Colors.green),
+              SizedBox(width: 10),
+              Text(
+                "Live Machine Data",
+                style: TextStyle(
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+            ],
+          ),
 
-                SizedBox(width: 10),
+          const SizedBox(height: 20),
 
-                Text(
-                  "Live Machine Data",
-                  style: TextStyle(
-                    fontSize: 21,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
+          machineTile(
+            Icons.speed,
+            Colors.blue,
+            "RPM",
+            "${vibit["rpm"] ?? 0}",
+            "RPM",
+          ),
 
-            const SizedBox(height: 20),
+          machineTile(
+            Icons.thermostat,
+            Colors.red,
+            "Temperature",
+            "${vibit["temperature"] ?? 0}",
+            "°C",
+          ),
 
-            machineTile(
-              Icons.speed,
-              Colors.blue,
-              "Live RPM",
-              value("rpm")
-                  .toStringAsFixed(0),
-              "RPM",
-            ),
+          machineTile(
+            Icons.graphic_eq,
+            Colors.purple,
+            "X RMS",
+            "${vibit["x_rms_velocity"] ?? 0}",
+            "mm/s",
+          ),
 
-            machineTile(
-              Icons.linear_scale,
-              Colors.orange,
-              "Feed Rate",
-              value("feed")
-                  .toStringAsFixed(2),
-              "mm/rev",
-            ),
+          machineTile(
+            Icons.graphic_eq,
+            Colors.deepPurple,
+            "Y RMS",
+            "${vibit["y_rms_velocity"] ?? 0}",
+            "mm/s",
+          ),
 
-            machineTile(
-              Icons.thermostat,
-              Colors.red,
-              "Temperature",
-              value("temperature")
-                  .toStringAsFixed(1),
-              "°C",
-            ),
+          machineTile(
+            Icons.graphic_eq,
+            Colors.indigo,
+            "Z RMS",
+            "${vibit["z_rms_velocity"] ?? 0}",
+            "mm/s",
+          ),
 
-            machineTile(
-              Icons.vibration,
-              Colors.deepPurple,
-              "Vibration",
-              value("vibration")
-                  .toStringAsFixed(2),
-              "mm/s",
-            ),
+          machineTile(
+            Icons.bolt,
+            Colors.orange,
+            "Power",
+            "${energy["total_kW"] ?? 0}",
+            "kW",
+          ),
 
-            machineTile(
-              Icons.build,
-              Colors.teal,
-              "Tool Wear",
-              value("toolWear")
-                  .toStringAsFixed(0),
-              "%",
-            ),
+          machineTile(
+            Icons.flash_on,
+            Colors.amber,
+            "Voltage",
+            "${energy["voltage"] ?? 0}",
+            "V",
+          ),
 
-            machineTile(
-              Icons.timer,
-              Colors.green,
-              "Machine Runtime",
-              value("runtime")
-                  .toStringAsFixed(0),
-              "min",
-            ),
-          ],
-        ),
+          machineTile(
+            Icons.electric_bolt,
+            Colors.teal,
+            "Current",
+            "${energy["current"] ?? 0}",
+            "A",
+          ),
+
+          machineTile(
+            Icons.waves,
+            Colors.green,
+            "Frequency",
+            "${energy["frequency"] ?? 0}",
+            "Hz",
+          ),
+
+          machineTile(
+            Icons.percent,
+            Colors.brown,
+            "Power Factor",
+            "${energy["power_factor"] ?? 0}",
+            "",
+          ),
+
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 }
