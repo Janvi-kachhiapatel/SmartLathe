@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:smart_lathe_frontend/core/app_colors.dart';
+import 'package:smart_lathe_frontend/screens/position/position_screen.dart';
 
 class PositionGauge extends StatelessWidget {
   final double xValue;
@@ -80,8 +81,8 @@ class PositionGauge extends StatelessWidget {
 
 Container(
   padding: const EdgeInsets.symmetric(
-    horizontal: 12,
-    vertical: 8,
+    horizontal: 10,
+    vertical: 6,
   ),
   decoration: BoxDecoration(
     color: color.withOpacity(0.1),
@@ -90,7 +91,7 @@ Container(
   child: Text(
     value.toStringAsFixed(3),
     style: TextStyle(
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: FontWeight.bold,
       color: color,
     ),
@@ -137,8 +138,17 @@ Container(
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
+Widget build(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const PositionScreen(),
+        ),
+      );
+    },
+    child: Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: AppColors.white,
@@ -151,14 +161,14 @@ Container(
             "LATHE POSITION",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 14,
+              fontSize: 13,
             ),
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 6),
 
          SizedBox(
-  height: 150,
+  height: 70,
   child: Row(
     mainAxisSize: MainAxisSize.min,
     children: [
@@ -170,7 +180,7 @@ Container(
         100,
       ),
 
-      const SizedBox(width: 10),
+      const SizedBox(width: 6),
 
       buildGauge(
         "Y Axis",
@@ -183,7 +193,7 @@ Container(
   ),
 ),
 
-const SizedBox(height: 0),
+const SizedBox(height: 6),
 
 Row(
   children: [
@@ -239,7 +249,8 @@ Row(
   ],
 ),
         ],
-      ),
-    );
-  }
+            ),
+    ),
+  );
+}
 }

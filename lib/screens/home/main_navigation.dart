@@ -14,7 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:smart_lathe_frontend/screens/machining/machining_screen.dart';
 
-import 'package:smart_lathe_frontend/screens/machining/machining_screen.dart';
+
 
 
 class MainNavigation extends StatefulWidget {
@@ -34,10 +34,19 @@ void initState() {
   loadRole();
 }
 
-Future<void> loadRole() async {
+// Future<void> loadRole() async {
 
-  final prefs =
-      await SharedPreferences.getInstance();
+//   final prefs =
+//       await SharedPreferences.getInstance();
+
+//   setState(() {
+//     role = prefs.getString("role") ?? "";
+//   });
+// }
+Future<void> loadRole() async {
+  final prefs = await SharedPreferences.getInstance();
+
+  if (!mounted) return;
 
   setState(() {
     role = prefs.getString("role") ?? "";
@@ -125,49 +134,56 @@ List<BottomNavigationBarItem> get items {
   }
 
   return const [
+  BottomNavigationBarItem(
+    icon: Icon(Icons.dashboard),
+    label: 'Dashboard',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.dashboard),
-      label: 'Dashboard',
-    ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.precision_manufacturing),
+    label: 'Machining',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.memory),
-      label: 'VIBIT1',
-    ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.memory),
+    label: 'VIBIT1',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.memory_outlined),
-      label: 'VIBIT2',
-    ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.memory_outlined),
+    label: 'VIBIT2',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.bolt),
-      label: 'Energy',
-    ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.bolt),
+    label: 'Energy',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.open_with),
-      label: 'Position',
-    ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.open_with),
+    label: 'Position',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.show_chart),
-      label: 'History',
-    ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.show_chart),
+    label: 'History',
+  ),
 
-    BottomNavigationBarItem(
-      icon: Icon(Icons.person),
-      label: 'Profile',
-    ),
-  ];
+  BottomNavigationBarItem(
+    icon: Icon(Icons.person),
+    label: 'Profile',
+  ),
+];
 }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[currentIndex],
+      //body: screens[currentIndex],
+      body: role.isEmpty
+    ? const Center(child: CircularProgressIndicator())
+    : screens[currentIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,

@@ -130,10 +130,14 @@ Future<void> loadData() async {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-          automaticallyImplyLeading: false,
-        title: const Text("X-Y Position Control"),
-       
-      ),
+  leading: IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () {
+      Navigator.pop(context);
+    },
+  ),
+  title: const Text("X-Y Position Control"),
+),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(14),
         child: Column(
@@ -171,57 +175,7 @@ Future<void> loadData() async {
 
             const SizedBox(height: 14),
 
-//             Row(
-//               children: [
-//                 controlButton(
-//   //               "RESET ALL",
-//   //               Colors.red,
-//   //               () async {
-//   // try {
-//   //   await ApiService.resetAll();
 
-//   //   await Future.delayed(
-//   //     const Duration(milliseconds: 500),
-// //     );
-
-// //     await loadData();
-
-// //     ScaffoldMessenger.of(context).showSnackBar(
-// //       const SnackBar(
-// //         content: Text("Reset Complete"),
-// //       ),
-// //     );
-// //   } catch (e) {
-// //     print(e);
-// //   }
-// // },
-//               //),
-//                 const SizedBox(width: 10),
-//                  controlButton(
-//                   "ZERO X",
-//                   Colors.blue,
-//                   () async {
-//   try {
-//     await ApiService.zeroX();
-
-//     await Future.delayed(
-//       const Duration(milliseconds: 500),
-//     );
-
-//     await loadData();
-
-//     ScaffoldMessenger.of(context).showSnackBar(
-//       const SnackBar(
-//         content: Text("X Zeroed"),
-//       ),
-//     );
-//   } catch (e) {
-//     print(e);
-//   }
-// },
-//                 ),
-//               ],
-//             ),
 
 Row(
   children: [
@@ -310,63 +264,3 @@ Row(
     );
   }
 }
-
-//             const SizedBox(height: 12),
-
-//             Row(
-//               children: [
-//                 controlButton(
-//                 "ZERO Y",
-//                 Colors.blue,
-//                 () async {
-//   try {
-//     await ApiService.zeroY();
-
-//     await Future.delayed(
-//       const Duration(milliseconds: 500),
-//     );
-
-//     await loadData();
-
-//     ScaffoldMessenger.of(context).showSnackBar(
-//       const SnackBar(
-//         content: Text("Y Zeroed"),
-//       ),
-//     );
-//   } catch (e) {
-//     print(e);
-//   }
-// },
-//               ),
-//                 const SizedBox(width: 10),
-//                  controlButton(
-//                   "ZERO BOTH",
-//                   Colors.green,
-//                   () async {
-//   try {
-//     await ApiService.zeroBoth();
-
-//     await Future.delayed(
-//       const Duration(milliseconds: 500),
-//     );
-
-//     await loadData();
-
-//     ScaffoldMessenger.of(context).showSnackBar(
-//       const SnackBar(
-//         content: Text("Both Axes Zeroed"),
-//       ),
-//     );
-//   } catch (e) {
-//     print(e);
-//   }
-// },
-//                 ),
-//               ],
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//  }
-//  }

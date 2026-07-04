@@ -130,97 +130,50 @@ class MachineStatusCard extends StatelessWidget {
     required this.redBuzzer,
   });
 
-  Widget statusTile({
-    required IconData icon,
-    required Color iconColor,
-    required String title,
-    required String status,
-    required bool isOn,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.grey.shade200),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: iconColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: 18,
-            ),
+  Widget buildStatusColumn(
+    String title,
+    String status,
+    bool isOn,
+  ) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.bold,
           ),
-
-          const SizedBox(width: 8),
-
-         Expanded(
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        title,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 13,
         ),
-      ),
 
-      const SizedBox(height: 2),
+        const SizedBox(height: 8),
 
-      Text(
-        status,
-        style: TextStyle(
-          color: isOn ? Colors.green : Colors.red,
-          fontWeight: FontWeight.w600,
-          fontSize: 12,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              status,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                color: isOn ? Colors.green : Colors.red,
+              ),
+            ),
+
+            const SizedBox(width: 5),
+
+            Container(
+              width: 10,
+              height: 10,
+              decoration: BoxDecoration(
+                color: isOn ? Colors.green : Colors.red,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ],
         ),
-      ),
-    ],
-  ),
-),
-
-Container(
-  width: 12,
-  height: 12,
-  decoration: BoxDecoration(
-    shape: BoxShape.circle,
-    color: isOn ? Colors.green : Colors.red,
-    boxShadow: [
-      BoxShadow(
-        color: (isOn ? Colors.green : Colors.red)
-            .withOpacity(0.9),
-        blurRadius: 12,
-        spreadRadius: 4,
-      ),
-    ],
-  ),
-),
-
-          //       const SizedBox(height: 4),
-
-          //       Text(
-          //         status,
-          //         style: TextStyle(
-          //           color: isOn ? Colors.green : Colors.red,
-          //           fontWeight: FontWeight.w600,
-          //           fontSize: 13,
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-        ],
-      ),
+      ],
     );
   }
 
@@ -230,7 +183,7 @@ Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(color: AppColors.border),
       ),
       child: Column(
@@ -239,35 +192,51 @@ Container(
           const Text(
             "MACHINE STATUS",
             style: TextStyle(
-              fontWeight: FontWeight.bold,
               fontSize: 12,
+              fontWeight: FontWeight.bold,
             ),
           ),
 
-          const SizedBox(height: 14),
+          const SizedBox(height: 18),
 
-          statusTile(
-            icon: Icons.power_settings_new,
-            iconColor: Colors.deepPurple,
-            title: "MACHINE",
-            status: machineStatus,
-            isOn: machineStatus.toUpperCase() == "ON",
-          ),
+          Row(
+            children: [
+              Expanded(
+                child: buildStatusColumn(
+                  "MACHINE",
+                  machineStatus,
+                  machineStatus.toUpperCase() == "ON",
+                ),
+              ),
 
-          statusTile(
-            icon: Icons.settings,
-            iconColor: Colors.blue,
-            title: "CHUCK KEY",
-            status: chuckStatus == 1 ? "CLOSED" : "OPEN",
-            isOn: chuckStatus == 1,
-          ),
+              Container(
+                height: 45,
+                width: 1,
+                color: Colors.grey.shade300,
+              ),
 
-          statusTile(
-            icon: Icons.volume_up,
-            iconColor: Colors.orange,
-            title: "BUZZER",
-            status: redBuzzer == 1 ? "ON" : "OFF",
-            isOn: redBuzzer == 1,
+              Expanded(
+                child: buildStatusColumn(
+                  "CHUCK KEY",
+                  chuckStatus == 1 ? "PLACED" : "LIFTED",
+                  chuckStatus == 1,
+                ),
+              ),
+
+              Container(
+                height: 45,
+                width: 1,
+                color: Colors.grey.shade300,
+              ),
+
+              Expanded(
+                child: buildStatusColumn(
+                  "BUZZER",
+                  redBuzzer == 1 ? "ON" : "OFF",
+                  redBuzzer == 1,
+                ),
+              ),
+            ],
           ),
         ],
       ),

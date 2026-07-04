@@ -79,11 +79,13 @@ class _Vibit1ScreenState extends State<Vibit1Screen> {
       backgroundColor: AppColors.background,
 
       appBar: AppBar(
-  automaticallyImplyLeading: false,
-  title: const 
-  Text(
-  "VIBIT 1 - Tool Post Monitoring",
-)
+  leading: IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () {
+      Navigator.pop(context);
+    },
+  ),
+  title: const Text("VITIT 1 - Tool Post Monitring"),
 ),
           
 

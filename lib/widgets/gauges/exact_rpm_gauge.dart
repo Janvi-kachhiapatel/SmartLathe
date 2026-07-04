@@ -13,7 +13,7 @@ class ExactRpmGauge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
@@ -30,7 +30,7 @@ class ExactRpmGauge extends StatelessWidget {
           const Text(
             "SPINDLE RPM",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -48,7 +48,7 @@ class ExactRpmGauge extends StatelessWidget {
                   showTicks: false,
 
                   axisLineStyle: const AxisLineStyle(
-                    thickness: 18,
+                    thickness: 14,
                   ),
 
                   ranges: [
@@ -85,7 +85,7 @@ class ExactRpmGauge extends StatelessWidget {
                     // )
                     NeedlePointer(
   value: rpm,
-  needleLength: 0.45,
+  needleLength: 0.38,
 
   needleStartWidth: 1,
   needleEndWidth: 3,
@@ -106,7 +106,7 @@ class ExactRpmGauge extends StatelessWidget {
                           Text(
                             rpm.toInt().toString(),
                             style: const TextStyle(
-                              fontSize: 32,
+                              fontSize: 34,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

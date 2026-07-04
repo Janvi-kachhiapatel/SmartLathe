@@ -387,17 +387,17 @@ Column(
 
     const SizedBox(height: 4),
 
-    if (lastUpdate != null)
-      Text(
-        "Last API Update : "
-        "${lastUpdate!.hour.toString().padLeft(2, '0')}:"
-        "${lastUpdate!.minute.toString().padLeft(2, '0')}:"
-        "${lastUpdate!.second.toString().padLeft(2, '0')}",
-        style: const TextStyle(
-          color: Colors.grey,
-          fontSize: 12,
-        ),
-      ),
+    // if (lastUpdate != null)
+    //   Text(
+    //     "Last API Update : "
+    //     "${lastUpdate!.hour.toString().padLeft(2, '0')}:"
+    //     "${lastUpdate!.minute.toString().padLeft(2, '0')}:"
+    //     "${lastUpdate!.second.toString().padLeft(2, '0')}",
+    //     style: const TextStyle(
+    //       color: Colors.grey,
+    //       fontSize: 12,
+    //     ),
+    //   ),
   ],
 ),
   //     style: const TextStyle(
@@ -413,15 +413,7 @@ Column(
   // ),
 
 //),
-
-            const SizedBox(height: 14),
-
-            SizedBox(
-              height: 360,
-              child: Row(
-            children: [
-  Expanded(
-    child: MachineStatusCard(
+MachineStatusCard(
   machineStatus:
       (data["machine"]?["status"] ?? "OFF").toString(),
 
@@ -431,147 +423,252 @@ Column(
   redBuzzer:
       (data["chuck"]?["red_buzzer"] ?? 0),
 ),
-  ),
-  const SizedBox(width: 12),
- Expanded(
-  child: ExactRpmGauge(
-    rpm: (data["vibit1"]?["rpm"] ?? 0).toDouble(),
+
+const SizedBox(height: 14),
+SizedBox(
+  height: 200,
+  child: PositionGauge(
+    xValue: (data["position"]?["x_position"] ?? 0).toDouble(),
+    yValue: (data["position"]?["y_position"] ?? 0).toDouble(),
+    cuttingSpeed:
+        (data["position"]?["cutting_speed"] ?? 0).toDouble(),
+    depthOfCutting:
+        (data["position"]?["depth_of_cutting"] ?? 0).toDouble(),
   ),
 ),
-],
-              ),
-            ),
 
-            const SizedBox(height: 12),
+const SizedBox(height: 14),
 
-            SizedBox(
-  height: 360,
+            // const SizedBox(height: 14),
+
+//             SizedBox(
+//               height: 360,
+//               child: Row(
+//             children: [
+//   Expanded(
+//     child: MachineStatusCard(
+//   machineStatus:
+//       (data["machine"]?["status"] ?? "OFF").toString(),
+
+//   chuckStatus:
+//       (data["chuck"]?["chuck_on"] ?? 0),
+
+//   redBuzzer:
+//       (data["chuck"]?["red_buzzer"] ?? 0),
+// ),
+//   ),
+//   const SizedBox(width: 12),
+//  Expanded(
+//   child: ExactRpmGauge(
+//     rpm: (data["vibit1"]?["rpm"] ?? 0).toDouble(),
+//   ),
+// ),
+// ],
+//               ),
+//             ),
+
+            // const SizedBox(height: 12),
+
+         SizedBox(
+  height: 190,
   child: Row(
     children: [
+
       Expanded(
-        child:
-        TemperatureCard(
-  headstockTemp:
-      (data["vibit2"]?["temperature"] ?? 0).toDouble(),
-
-  toolpostTemp:
-      (data["vibit1"]?["temperature"] ?? 0).toDouble(),
-
-  headstockVibration:
-      (data["vibit2"]?["z_rms_velocity"] ?? 0).toDouble(),
-
-  toolpostVibration:
-      (data["vibit1"]?["z_rms_velocity"] ?? 0).toDouble(),
-),
+        child: ExactRpmGauge(
+          rpm: (data["vibit1"]?["rpm"] ?? 0).toDouble(),
+        ),
       ),
 
       const SizedBox(width: 12),
 
       Expanded(
-  child: ExactVibrationGauge(
-    health: calculateHealth(),
-  ),
-),
+        child: ExactVibrationGauge(
+          health: calculateHealth(),
+        ),
+      ),
+
     ],
   ),
 ),
 
-            const SizedBox(height: 12),
-
-            SizedBox(
-              height: 500,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: infoCard(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                              const  Text(
-                            "ENERGY SUMMARY",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 20),
-
-                          energyRow(
-  "Voltage",
-  "${(data["energy"]?["data"]?["avg_voltage_LN"] ?? 0)} V",
+const SizedBox(height: 14),
+SizedBox(
+  height: 180,
+  child: TemperatureCard(
+    headstockTemp:
+        (data["vibit2"]?["temperature"] ?? 0).toDouble(),
+    toolpostTemp:
+        (data["vibit1"]?["temperature"] ?? 0).toDouble(),
+    headstockVibration:
+        (data["vibit2"]?["z_rms_velocity"] ?? 0).toDouble(),
+    toolpostVibration:
+        (data["vibit1"]?["z_rms_velocity"] ?? 0).toDouble(),
+  ),
 ),
 
-const SizedBox(height: 12),
+const SizedBox(height: 14),
+SizedBox(
+  width: double.infinity,
+  child: infoCard(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "ENERGY SUMMARY",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
 
-energyRow(
-  "Current",
-  "${(data["energy"]?["data"]?["avg_current"] ?? 0)} A",
-),
+        const SizedBox(height: 20),
 
-const SizedBox(height: 12),
+        energyRow(
+          "Voltage",
+          "${data["energy"]?["data"]?["avg_voltage_LN"] ?? 0} V",
+        ),
 
-energyRow(
-  "Power",
-  "${(data["energy"]?["data"]?["total_kW"] ?? 0)} kW",
-),
+        const SizedBox(height: 12),
 
-const SizedBox(height: 12),
+        energyRow(
+          "Current",
+          "${data["energy"]?["data"]?["avg_current"] ?? 0} A",
+        ),
 
-energyRow(
-  "Frequency",
-  "${(data["energy"]?["data"]?["frequency"] ?? 0)} Hz",
-),
+        const SizedBox(height: 12),
 
-const SizedBox(height: 12),
+        energyRow(
+          "Power",
+          "${data["energy"]?["data"]?["total_kW"] ?? 0} kW",
+        ),
 
-energyRow(
-  "PF",
-  "${(data["energy"]?["data"]?["avg_PF"] ?? 0)}",
-),
+        const SizedBox(height: 12),
 
-const SizedBox(height: 12),
+        energyRow(
+          "Frequency",
+          "${data["energy"]?["data"]?["frequency"] ?? 0} Hz",
+        ),
 
-energyRow(
-  "Avg Volt LN",
-  "${(data["energy"]?["data"]?["avg_voltage_LN"] ?? 0)} V",
-),
+        const SizedBox(height: 12),
 
-const SizedBox(height: 12),
+        energyRow(
+          "PF",
+          "${data["energy"]?["data"]?["avg_PF"] ?? 0}",
+        ),
 
-energyRow(
-  "Avg Volt LL",
-  "${(data["energy"]?["data"]?["avg_voltage_LL"] ?? 0)} V",
-),
-      
-  ],
-),
-),
+        const SizedBox(height: 12),
+
+        energyRow(
+          "Avg Volt LN",
+          "${data["energy"]?["data"]?["avg_voltage_LN"] ?? 0} V",
+        ),
+
+        const SizedBox(height: 12),
+
+        energyRow(
+          "Avg Volt LL",
+          "${data["energy"]?["data"]?["avg_voltage_LL"] ?? 0} V",
+        ),
+      ],
     ),
+  ),
+),
+
+const SizedBox(height: 14),
+
+//             SizedBox(
+//               height: 500,
+//               child: Row(
+//                 children: [
+//                   Expanded(
+//                     child: infoCard(
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                               const  Text(
+//                             "ENERGY SUMMARY",
+//                             style: TextStyle(fontWeight: FontWeight.bold),
+//                           ),
+//                           SizedBox(height: 20),
+
+//                           energyRow(
+//   "Voltage",
+//   "${(data["energy"]?["data"]?["avg_voltage_LN"] ?? 0)} V",
+// ),
+
+// const SizedBox(height: 12),
+
+// energyRow(
+//   "Current",
+//   "${(data["energy"]?["data"]?["avg_current"] ?? 0)} A",
+// ),
+
+// const SizedBox(height: 12),
+
+// energyRow(
+//   "Power",
+//   "${(data["energy"]?["data"]?["total_kW"] ?? 0)} kW",
+// ),
+
+// const SizedBox(height: 12),
+
+// energyRow(
+//   "Frequency",
+//   "${(data["energy"]?["data"]?["frequency"] ?? 0)} Hz",
+// ),
+
+// const SizedBox(height: 12),
+
+// energyRow(
+//   "PF",
+//   "${(data["energy"]?["data"]?["avg_PF"] ?? 0)}",
+// ),
+
+// const SizedBox(height: 12),
+
+// energyRow(
+//   "Avg Volt LN",
+//   "${(data["energy"]?["data"]?["avg_voltage_LN"] ?? 0)} V",
+// ),
+
+// const SizedBox(height: 12),
+
+// energyRow(
+//   "Avg Volt LL",
+//   "${(data["energy"]?["data"]?["avg_voltage_LL"] ?? 0)} V",
+// ),
+      
+//   ],
+// ),
+// ),
+//     ),
                   
-            const SizedBox(width: 12),
-                 Expanded(
-  child: PositionGauge(
-  xValue:
-      (data["position"]?["x_position"] ?? 0).toDouble(),
+//             const SizedBox(width: 12),
+//                  Expanded(
+//   child: PositionGauge(
+//   xValue:
+//       (data["position"]?["x_position"] ?? 0).toDouble(),
 
-  yValue:
-      (data["position"]?["y_position"] ?? 0).toDouble(),
+//   yValue:
+//       (data["position"]?["y_position"] ?? 0).toDouble(),
 
-  cuttingSpeed:
-      (data["position"]?["cutting_speed"] ?? 0).toDouble(),
+//   cuttingSpeed:
+//       (data["position"]?["cutting_speed"] ?? 0).toDouble(),
 
-  depthOfCutting:
-      (data["position"]?["depth_of_cutting"] ?? 0).toDouble(),
-),
-),
-                ],
-              ),
-            ),
+//   depthOfCutting:
+//       (data["position"]?["depth_of_cutting"] ?? 0).toDouble(),
+// ),
+// ),
+//                 ],
+//               ),
+//             ),
 
-            const SizedBox(height: 14),
+const SizedBox(height: 14),
+            
                       ],
         ),
       ),
     );
   }
 }
-
-           
-          

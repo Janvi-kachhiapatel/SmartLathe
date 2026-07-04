@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+//import 'package:http/http.dart' as http;
 import 'package:http/http.dart' as http;
-
 
 class ApiService {
   // static const String baseUrl = "http://192.168.56.1:8000";
@@ -185,5 +185,34 @@ static Future<void> resetAll() async {
     Uri.parse("$baseUrl/reset_all"),
   );
 }
+static Future<List<dynamic>> getUsers() async {
+  final response = await http.get(
+    Uri.parse("$baseUrl/users"),
+  );
+
+  return jsonDecode(response.body);
 }
+static Future<bool> deleteUser(int userId) async {
+  final response = await http.delete(
+    Uri.parse("$baseUrl/users/$userId"),
+  );
+
+  if (response.statusCode == 200) {
+    final data = jsonDecode(response.body);
+    return data["success"] == true;
+  }
+
+  return false;
+}
+static Future<bool> updateUser(String userId, Map<String, dynamic> data) async {
+  final response = await http.put(
+    Uri.parse("$baseUrl/users/$userId"),
+    headers: {"Content-Type": "application/json"},
+    body: jsonEncode(data),
+  );
+
+  return response.statusCode == 200;
+}
+}
+
 

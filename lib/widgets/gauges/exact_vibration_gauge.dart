@@ -13,7 +13,7 @@ class ExactVibrationGauge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
@@ -30,7 +30,7 @@ class ExactVibrationGauge extends StatelessWidget {
           const Text(
             "VIBRATION HEALTH",
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -45,14 +45,14 @@ class ExactVibrationGauge extends StatelessWidget {
                   showTicks: false,
 
                   axisLineStyle: const AxisLineStyle(
-                    thickness: 0.18,
+                    thickness: 0.14,
                     thicknessUnit: GaugeSizeUnit.factor,
                   ),
 
                   pointers: [
                     RangePointer(
                       value: health,
-                      width: 0.18,
+                      width: 0.14,
                       sizeUnit: GaugeSizeUnit.factor,
                       color: Colors.green,
                     ),
@@ -66,7 +66,7 @@ class ExactVibrationGauge extends StatelessWidget {
                           Text(
                             "${health.toInt()}%",
                             style: const TextStyle(
-                              fontSize: 32,
+                              fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

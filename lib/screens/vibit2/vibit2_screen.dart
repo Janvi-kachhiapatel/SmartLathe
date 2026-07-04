@@ -77,13 +77,15 @@ class _Vibit2ScreenState extends State<Vibit2Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-       automaticallyImplyLeading: false,
-        title: const
-        Text(
-  "VIBIT 2 - Head Stock Monitoring",
-)
-      ),
+     appBar: AppBar(
+  leading: IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () {
+      Navigator.pop(context);
+    },
+  ),
+  title: const Text("VIBIT 2 - Head Stock Monitring"),
+),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(14),
         child: Column(

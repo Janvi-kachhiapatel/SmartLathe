@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_lathe_frontend/core/app_colors.dart';
+import 'package:smart_lathe_frontend/screens/vibit1/vibit1_screen.dart';
+import 'package:smart_lathe_frontend/screens/vibit2/vibit2_screen.dart';
 
 class TemperatureCard extends StatelessWidget {
   final double headstockTemp;
@@ -94,7 +96,7 @@ final double toolpostVibration;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
@@ -113,83 +115,116 @@ final double toolpostVibration;
           const Text(
             "TEMPERATURE SUMMARY",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
           ),
 
-          const SizedBox(height:12),
+          const SizedBox(height:8),
 
-                  Container(
-  padding: const EdgeInsets.all(10),
-  decoration: BoxDecoration(
-    color: Colors.orange.withOpacity(0.08),
-    borderRadius: BorderRadius.circular(12),
-  ),
-  child: Column(
-    children: [
-      const Text(
-        "HEAD STOCK",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.orange,
+                  Row(
+  children: [
+
+    Expanded(
+  child: GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const Vibit2Screen(),
+        ),
+      );
+    },
+    child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.orange.withOpacity(0.08),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+
+            const Text(
+              "HEAD STOCK",
+              style: TextStyle(
+                color: Colors.orange,
+                fontWeight: FontWeight.bold,
+                fontSize: 13,
+              ),
+            ),
+        
+
+            const SizedBox(height: 8),
+
+            tempRow(
+              "Temp",
+              "${headstockTemp.toStringAsFixed(1)}°C",
+              Colors.orange,
+            ),
+
+            const SizedBox(height: 6),
+
+            vibrationRow(
+              "Vib",
+              headstockVibration.toStringAsFixed(2),
+              Colors.orange,
+            ),
+          ],
         ),
       ),
+    ),
+    ),
+    const SizedBox(width: 10),
 
-      const SizedBox(height: 10),
+   Expanded(
+  child: GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const Vibit1Screen(),
+        ),
+      );
+    },
+    child: Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.blue.withOpacity(0.08),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
 
-      tempRow(
-        "Temp",
-        "${headstockTemp.toStringAsFixed(1)}°C",
-        Colors.orange,
-      ),
+            const Text(
+              "TOOL POST",
+              style: TextStyle(
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+                fontSize: 13,
+              ),
+            ),
 
-      const SizedBox(height: 8),
+            const SizedBox(height: 8),
 
-      vibrationRow(
-        "Vib",
-        "${headstockVibration.toStringAsFixed(2)}",
-        Colors.orange,
-      ),
-    ],
-  ),
-),
+            tempRow(
+              "Temp",
+              "${toolpostTemp.toStringAsFixed(1)}°C",
+              Colors.blue,
+            ),
 
-const SizedBox(height: 12),
+            const SizedBox(height: 6),
 
-Container(
-  padding: const EdgeInsets.all(10),
-  decoration: BoxDecoration(
-    color: Colors.blue.withOpacity(0.08),
-    borderRadius: BorderRadius.circular(12),
-  ),
-  child: Column(
-    children: [
-      const Text(
-        "TOOL POST",
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.blue,
+            vibrationRow(
+              "Vib",
+              toolpostVibration.toStringAsFixed(2),
+              Colors.blue,
+            ),
+          ],
         ),
       ),
-
-      const SizedBox(height: 10),
-
-      tempRow(
-        "Temp",
-        "${toolpostTemp.toStringAsFixed(1)}°C",
-        Colors.blue,
-      ),
-
-      const SizedBox(height: 8),
-
-      vibrationRow(
-        "Vib",
-        "${toolpostVibration.toStringAsFixed(2)}",
-        Colors.blue,
-      ),
-    ],
-  ),
+    ),
+   ),
+  ],
 ),
                ],
       ),
